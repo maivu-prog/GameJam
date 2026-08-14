@@ -1,0 +1,8 @@
+service_account.json
+oauth_client.json
+authorized_user.json
+*.creds.json
+__pycache__/
+
+# Any credential JSON (service-account keys have arbitrary names)
+*.json

@@ -1,0 +1,57 @@
+{
+  "_meta": {
+    "note": "Canonical game data, grouped by feature. Each top-level key becomes a Google Sheet tab via tools/sheet_sync.py. 'table' sections are rows; 'tuning'/'economy' are key/value.",
+    "priceColumns": "In 'ports', price_<fishId> = sell multiplier for that species at that port."
+  },
+  "fish": [
+    {"id": "bream",         "name": "Coastal Bream",  "art": "bream",         "hp": 8,   "speed": 1.2,  "size": 0.6,  "aspect": 1.42, "minDepth": 2,  "maxDepth": 14, "value": 10,  "weight": 1.0},
+    {"id": "sardine",       "name": "Silver Sardine", "art": "sardine",       "hp": 6,   "speed": 2.4,  "size": 0.48, "aspect": 3.76, "minDepth": 2,  "maxDepth": 12, "value": 8,   "weight": 1.3},
+    {"id": "mackerel",      "name": "Blue Mackerel",  "art": "mackerel",      "hp": 16,  "speed": 2.1,  "size": 0.82, "aspect": 2.23, "minDepth": 4,  "maxDepth": 20, "value": 22,  "weight": 1.0},
+    {"id": "barracuda",     "name": "Barracuda",      "art": "barracuda",     "hp": 25,  "speed": 1.8,  "size": 1.0,  "aspect": 3.03, "minDepth": 8,  "maxDepth": 28, "value": 35,  "weight": 1.0},
+    {"id": "red_snapper",   "name": "Red Snapper",    "art": "red_snapper",   "hp": 32,  "speed": 1.5,  "size": 1.05, "aspect": 1.35, "minDepth": 10, "maxDepth": 30, "value": 48,  "weight": 0.8},
+    {"id": "lanternfish",   "name": "Lanternfish",    "art": "lanternfish",   "hp": 20,  "speed": 1.9,  "size": 0.72, "aspect": 1.74, "minDepth": 20, "maxDepth": 42, "value": 55,  "weight": 0.75},
+    {"id": "anglerfish",    "name": "Anglerfish",     "art": "anglerfish",    "hp": 60,  "speed": 2.4,  "size": 1.6,  "aspect": 1.56, "minDepth": 28, "maxDepth": 49, "value": 120, "weight": 1.0},
+    {"id": "black_grouper", "name": "Black Grouper",  "art": "black_grouper", "hp": 85,  "speed": 1.15, "size": 1.85, "aspect": 1.65, "minDepth": 22, "maxDepth": 48, "value": 175, "weight": 0.5},
+    {"id": "ghost_tuna",    "name": "Ghost Tuna",     "art": "ghost_tuna",    "hp": 110, "speed": 2.8,  "size": 1.45, "aspect": 1.91, "minDepth": 25, "maxDepth": 49, "value": 240, "weight": 0.25}
+  ],
+  "ports": [
+    {"id": "home",     "name": "Home Harbor",     "x": 6,   "upgrades": true,  "art": "harbors-0", "price_bream": 0.75, "price_sardine": 0.7,  "price_mackerel": 0.8,  "price_barracuda": 0.8,  "price_red_snapper": 0.9,  "price_lanternfish": 1.1,  "price_anglerfish": 0.85, "price_black_grouper": 1.0,  "price_ghost_tuna": 1.2},
+    {"id": "coral",    "name": "Coral Harbor",    "x": 38,  "upgrades": false, "art": "harbors-2", "price_bream": 1.15, "price_sardine": 1.25, "price_mackerel": 1.1,  "price_barracuda": 1.0,  "price_red_snapper": 0.8,  "price_lanternfish": 1.25, "price_anglerfish": 0.95, "price_black_grouper": 1.1,  "price_ghost_tuna": 1.25},
+    {"id": "trade",    "name": "Merchant Harbor", "x": 76,  "upgrades": false, "art": "harbors-3", "price_bream": 1.4,  "price_sardine": 1.55, "price_mackerel": 1.45, "price_barracuda": 1.35, "price_red_snapper": 1.25, "price_lanternfish": 1.4,  "price_anglerfish": 1.2,  "price_black_grouper": 1.15, "price_ghost_tuna": 1.35},
+    {"id": "frontier", "name": "Frontier Harbor", "x": 116, "upgrades": false, "art": "harbors-1", "price_bream": 1.8,  "price_sardine": 2.0,  "price_mackerel": 1.85, "price_barracuda": 1.65, "price_red_snapper": 1.7,  "price_lanternfish": 1.6,  "price_anglerfish": 1.5,  "price_black_grouper": 1.4,  "price_ghost_tuna": 1.25}
+  ],
+  "obstacles": [
+    {"id": "driftwood", "name": "Driftwood",  "x": 25, "safeSpeed": 2.4,  "damage": 12, "art": "obstacles-0"},
+    {"id": "shipwreck", "name": "Shipwreck",  "x": 58, "safeSpeed": 1.5,  "damage": 30, "art": "obstacles-1"},
+    {"id": "reef",      "name": "Death Reef", "x": 96, "safeSpeed": 0.95, "damage": 48, "art": "obstacles-2"}
+  ],
+  "zones": [
+    {"name": "Coastal Waters", "maxX": 25,  "spawnRateMul": 0.2,  "allows": "sardine,bream,mackerel"},
+    {"name": "Open Sea",       "maxX": 65,  "spawnRateMul": 0.95, "allows": "!black_grouper,!ghost_tuna"},
+    {"name": "Deep Sea",       "maxX": 999, "spawnRateMul": 1.65, "allows": "!bream,!sardine"}
+  ],
+  "upgrades": [
+    {"id": "hook",   "name": "Hook",   "effectPerLevel": "+25% fishing damage", "maxLevel": 3, "cost1": 120, "cost2": 300, "cost3": 650},
+    {"id": "hold",   "name": "Hold",   "effectPerLevel": "+5 basket capacity",  "maxLevel": 3, "cost1": 120, "cost2": 300, "cost3": 650},
+    {"id": "engine", "name": "Engine", "effectPerLevel": "+15% boat speed",      "maxLevel": 3, "cost1": 120, "cost2": 300, "cost3": 650},
+    {"id": "hull",   "name": "Hull",   "effectPerLevel": "+25 max HP",           "maxLevel": 3, "cost1": 120, "cost2": 300, "cost3": 650}
+  ],
+  "tuning": {
+    "HookSink": 3.5, "HookSinkMax": 5, "HookUpForce": 11, "HookUpDrag": 0.5,
+    "HookRiseMax": 5, "HookHorizontal": 5, "HookRetract": 20, "HookDamage": 10,
+    "PixelsPerUnit": 40, "HookLineSeconds": 12, "HookMaxDepthUnits": 26,
+    "WorldScrollPpu": 42, "FishSwimPpu": 40, "FishWanderPx": 26, "FishTurnChance": 0.4,
+    "FishSurfaceY": 250, "FishDepthPx": 26, "FishSpawnHalfWidthPx": 520, "FishSizeScale": 1,
+    "LineWidthPx": 7, "LineTrailMinDist": 14, "LineTrailMaxPoints": 90,
+    "CollectSeconds": 0.5, "SpawnBaseInterval": 1.1, "SpawnMaxActive": 18,
+    "WeightMin": 0.6, "WeightMax": 1.7, "WeightSizeToKg": 4,
+    "DockGap": 37, "MaxSpeed": 3.5, "BoatAccel": 1.25, "BoatDecel": 1.6,
+    "DaySeconds": 180, "NightSeconds": 180
+  },
+  "economy": {
+    "basketBaseCapacity": 20, "holdCapacityPerLevel": 5,
+    "startHullHp": 100, "hullHpPerLevel": 25, "repairCostPerMissingHp": 2,
+    "engineSpeedPerLevel": 0.15, "hookDamagePerLevel": 0.25,
+    "freshHours": 24, "staleHours": 48, "staleSellFactor": 0.5
+  }
+}
