@@ -18,6 +18,23 @@ namespace RustyFishing.Editor
             Debug.Log("Rusty Fishing progression reset (save cleared).");
         }
 
+        [MenuItem("Rusty Fishing/Build Android APK")]
+        public static void BuildAndroid()
+        {
+            // Requires the Android Build Support module (install it via Unity Hub ▸ Add Modules).
+            Directory.CreateDirectory("Builds/Android");
+            var options=new BuildPlayerOptions
+            {
+                scenes=new[]{"Assets/Scenes/SampleScene.unity"},
+                locationPathName="Builds/Android/RustyFishing.apk",
+                target=BuildTarget.Android,
+                options=BuildOptions.Development // drop this for a clean release APK
+            };
+            var report=BuildPipeline.BuildPlayer(options);
+            if(report.summary.result!=BuildResult.Succeeded)throw new System.Exception($"Android build failed: {report.summary.result}");
+            Debug.Log($"Rusty Fishing APK built: {report.summary.totalSize} bytes → {options.locationPathName}");
+        }
+
         [MenuItem("Rusty Fishing/Build Windows Development")]
         public static void BuildWindows()
         {
