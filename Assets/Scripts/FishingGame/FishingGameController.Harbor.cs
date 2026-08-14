@@ -140,7 +140,7 @@ namespace RustyFishing
                 bool sel=k==upgradeIndex;
                 int lvl=UpgradeLevel(UpgradePartIds[k]);
                 bool canUpgrade=lvl<costs.Length&&save.Data.coins>=costs[lvl];
-                if(p.iconImage!=null){var s=sel?p.selectedSprite:p.normalSprite;if(s!=null)p.iconImage.sprite=s;}
+                p.SetSelected(sel); // icon swaps using the button's own Sprite-Swap states
                 if(p.highlight!=null)p.highlight.SetActive(sel);
                 if(p.label!=null)p.label.text=$"{UpgradePartNames[k]} {Roman(lvl+1)}";
                 if(p.readyIndicator!=null)p.readyIndicator.SetActive(canUpgrade);
