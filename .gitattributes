@@ -172,6 +172,6 @@ LightingData.asset     binary
 
 # The published web build must NEVER go through Git LFS. GitHub Pages serves LFS files as their
 # pointer text, not their contents, so the loader would fetch a few lines of ASCII instead of the
-# game and the progress bar images would come back as text. Everything under Builds/Web is served
+# game and the progress bar images would come back as text. Everything under docs/ is served
 # verbatim by a static host, so it has to sit in the repository as real bytes.
-Builds/Web/** -filter -diff -merge -text
+docs/** -filter -diff -merge -text

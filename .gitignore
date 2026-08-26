@@ -110,8 +110,7 @@ InitTestScene*.unity*
 /[Aa]ssets/_Recovery/
 /[Aa]ssets/_Recovery.meta
 
-# The web build IS the deployable artifact for GitLab Pages, so it is committed on purpose while
-# every other build output stays ignored. Keep it small -- see the texture compression note in
-# Assets/Editor/FishingAssetImporter.cs before wondering why data.br is 70MB.
-!/[Bb]uilds/Web/
-!/[Bb]uilds/Web/**
+# The published web build lives in docs/, which GitHub Pages serves directly -- it is the only
+# folder Pages accepts besides the repository root. Build output everywhere else stays ignored.
+# Keep it small: see the texture compression note in Assets/Editor/FishingAssetImporter.cs before
+# wondering why the payload is 70MB.
