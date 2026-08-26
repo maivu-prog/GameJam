@@ -115,22 +115,25 @@
         // The footer has to be measured and subtracted, not ignored: Unity's own bar sits BELOW the
         // canvas and pushes it past the bottom of the viewport, which cut the game off exactly as much
         // as the bar is tall.
+        // Portrait game, landscape screen. Fit ENTIRELY inside the window at the true 9:16 aspect:
+        // take whichever of height or width runs out first, and let the game be smaller rather than
+        // cropped or stretched. A small margin keeps it off the very edge of the viewport.
         var ASPECT = 1080 / 1920;
-        // The footer is hidden in style.css, so the canvas gets the whole window height. Measured
-        // rather than assumed all the same: if the bar is ever put back, offsetHeight returns to a
-        // real number and the fit still lands inside the viewport.
+        var MARGIN = 16;
         var footer = document.querySelector("#unity-footer");
         function fitCanvas() {
           var chrome = (footer && footer.offsetHeight) || 0;
-          var h = Math.max(240, window.innerHeight - chrome);
+          var availH = Math.max(200, window.innerHeight - chrome - MARGIN);
+          var availW = Math.max(120, window.innerWidth - MARGIN);
+          // Height-limited unless the window is narrow, in which case width decides.
+          var h = Math.min(availH, availW / ASPECT);
           var w = h * ASPECT;
-          if (w > window.innerWidth) { w = window.innerWidth; h = w / ASPECT; }
           canvas.style.width = w + "px";
           canvas.style.height = h + "px";
         }
         fitCanvas();
         window.addEventListener("resize", fitCanvas);
-        // The footer's own images load after this runs, so re-fit once everything has settled.
+        // The layout settles after images load, so measure once more.
         window.addEventListener("load", fitCanvas);
       }
 
