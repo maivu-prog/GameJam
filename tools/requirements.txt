@@ -1,3 +1,7 @@
 gspread>=6.0.0
 google-auth>=2.20.0
 google-auth-oauthlib>=1.0.0
+
+# make_parallax_layers.py
+pillow
+numpy

@@ -14,6 +14,14 @@ namespace RustyFishing
             if(sprite==null)Debug.LogError($"Missing UI sprite: Assets/Resources/Art/{path}.png");
             return sprite;
         }
+        // A plain 1x1 white sprite, built once. Use it for solid-colour quads (e.g. the fishing line
+        // segments) so they render as clean tinted rectangles instead of stretching a detailed sprite.
+        static Sprite whiteSprite;
+        public static Sprite WhiteSprite()
+        {
+            if(whiteSprite==null){var tex=Texture2D.whiteTexture;whiteSprite=UnityEngine.Sprite.Create(tex,new Rect(0,0,tex.width,tex.height),new Vector2(.5f,.5f),100f);whiteSprite.name="RuntimeWhite";}
+            return whiteSprite;
+        }
         public static RectTransform Rect(Transform parent,string name,Vector2 pos,Vector2 size)
         { var go=new GameObject(name,typeof(RectTransform));var r=go.GetComponent<RectTransform>();r.SetParent(parent,false);r.anchorMin=r.anchorMax=new Vector2(.5f,.5f);r.pivot=new Vector2(.5f,.5f);r.anchoredPosition=pos;r.sizeDelta=size;return r; }
         public static Image Image(Transform parent,string name,string path,Vector2 pos,Vector2 size)

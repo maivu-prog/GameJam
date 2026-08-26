@@ -1,4 +1,3 @@
-using System.Linq;
 using UnityEngine;
 
 namespace RustyFishing
@@ -16,7 +15,15 @@ namespace RustyFishing
             // Safe/danger is shown by the zone board (safe = at a port, danger = open water).
             UpdateZoneBoard(port!=null);
             // Speedometer + hazard (safe-speed) needle.
-            var nearby=GameCatalog.Obstacles.OrderBy(o=>Mathf.Abs(o.x-boatX)).FirstOrDefault();
+            // Nearest obstacle by a plain linear scan. This used to be OrderBy(...).FirstOrDefault(), which
+            // SORTED the whole field every frame — O(n log n) plus an iterator and a buffer allocated per
+            // frame — to read one element. Finding a minimum needs neither.
+            ObstacleInstance nearby=null;float nearestDist=float.MaxValue;
+            var obstacles=GameCatalog.ObstacleField;
+            for(int i=0;i<obstacles.Count;i++){
+                float d=Mathf.Abs(obstacles[i].x-boatX);
+                if(d<nearestDist){nearestDist=d;nearby=obstacles[i];}
+            }
             bool inHazard=nearby!=null&&Mathf.Abs(nearby.x-boatX)<3;
             if(speedNeedle!=null)speedNeedle.localEulerAngles=new Vector3(0,0,SpeedNeedleAngle(Mathf.Abs(boatSpeed)));
             if(safeNeedle!=null){safeNeedle.gameObject.SetActive(inHazard);if(inHazard)safeNeedle.localEulerAngles=new Vector3(0,0,SpeedNeedleAngle(nearby.safeSpeed));}
@@ -32,17 +39,50 @@ namespace RustyFishing
             Set(hp,$"{save.Data.hullHp}/{save.MaxHp}");
             Set(speed,$"{Mathf.Abs(boatSpeed):0.0} kn");
             UpdateHpBar();}
-        // Harbor-arrival banner: when the boat enters a port zone, flash the port name for ~2s then fade.
+        // Harbor-arrival banner. The name FADES IN as the port comes into reach, holds, then fades out —
+        // it used to snap to full opacity the instant the boat crossed the port radius, which read as a
+        // popup rather than as the harbour resolving out of the rain.
         void UpdateArrivalBanner(PortDef port){
-            if(port!=null&&port!=bannerPort){bannerPort=port;bannerTimer=BannerHold+BannerFade;if(harborZone!=null){harborZone.text=port.name.ToUpperInvariant();harborZone.alpha=1;harborZone.gameObject.SetActive(true);}}
-            else if(port==null)bannerPort=null;
-            if(bannerTimer>0){bannerTimer-=Time.deltaTime;if(harborZone!=null)harborZone.alpha=bannerTimer>BannerFade?1f:Mathf.Clamp01(bannerTimer/BannerFade);if(bannerTimer<=0&&harborZone!=null)harborZone.gameObject.SetActive(false);}}
+            if(harborZone==null)return;
+
+            // Arriving raises the name and PINS it: while the boat sits in harbour water the sign stays up,
+            // because it is a label for where you are, not an announcement that you got here.
+            if(port!=null&&port!=bannerPort){
+                bannerPort=port;bannerTimer=0f;bannerPinned=true;
+                harborZone.text=port.name.ToUpperInvariant();
+                harborZone.alpha=0f;
+                harborZone.gameObject.SetActive(true);
+            }
+            // Casting off releases the pin — jump straight to the fade-out leg so the name drops astern
+            // with the harbour instead of lingering for a fixed count first.
+            if(port==null&&bannerPinned){
+                bannerPinned=false;bannerPort=null;
+                bannerTimer=BannerIn+BannerHold;
+            }
+            if(!harborZone.gameObject.activeSelf)return;
+
+            bannerTimer+=Time.deltaTime;
+            float t=bannerTimer;
+            float alpha=t<BannerIn        ? t/BannerIn
+                       :bannerPinned      ? 1f
+                       :t<BannerIn+BannerHold ? 1f
+                       :1f-(t-BannerIn-BannerHold)/BannerOut;
+            harborZone.alpha=Mathf.Clamp01(alpha);
+            // Ride up a little on the way in and settle — the drift is what makes the fade read as motion.
+            float rise=t<BannerIn?(1f-Mathf.SmoothStep(0f,1f,t/BannerIn))*-BannerRisePx:0f;
+            var rt=harborZone.rectTransform;
+            rt.anchoredPosition=new Vector2(rt.anchoredPosition.x,bannerBaseY+rise);
+            if(!bannerPinned&&t>=BannerIn+BannerHold+BannerOut)harborZone.gameObject.SetActive(false);}
         // HP fill bar: fillAmount = hullHp / maxHp, with an optional green→yellow→red tint.
         void UpdateHpBar(){if(hpFill==null)return;float frac=save.MaxHp>0?Mathf.Clamp01((float)save.Data.hullHp/save.MaxHp):0f;hpFill.fillAmount=frac;if(hpFillTint)hpFill.color=frac>.5f?new Color(.42f,.82f,.44f):frac>.25f?new Color(.9f,.77f,.3f):new Color(.85f,.32f,.3f);}
         // Swap the board sprite + text between safe/danger. Safe = docked at a port; danger = out in open water.
         void UpdateZoneBoard(bool safe){
             if(zoneBoard!=null){var s=safe?zoneSafeSprite:zoneDangerSprite;if(s!=null&&zoneBoard.sprite!=s)zoneBoard.sprite=s;}
-            if(zoneBoardText!=null){var t=safe?zoneSafeText:zoneDangerText;if(zoneBoardText.text!=t)zoneBoardText.text=t;}}
+            // Out on the water the board doubles as the stock readout: a thinning region has to be visible
+            // or the drop in catches just reads as the game being stingy.
+            if(zoneBoardText!=null){
+                var t=safe?zoneSafeText:FishStock.Label(FishStock.BestReachable(save.Data,boatX,save.Tier));
+                if(zoneBoardText.text!=t)zoneBoardText.text=t;}}
         string ClockLabel(){float h=worldHour%24;return $"{Mathf.FloorToInt(h):00}:{Mathf.FloorToInt((h-Mathf.Floor(h))*60):00}";}
         // The speed + safe-speed needles must pivot at the speedometer's centre (their own parent's
         // origin). Force it so they rotate around the dial hub regardless of how the scene was laid out.

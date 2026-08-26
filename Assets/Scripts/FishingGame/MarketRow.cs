@@ -9,18 +9,21 @@ namespace RustyFishing
     /// One market row = ONE caught fish (not grouped). Put this on your row prefab and wire the
     /// pieces it has. Unassigned fields are skipped, so the prefab layout is up to you.
     ///   freshDots: 3 dots, [0]=Fresh [1]=Stale [2]=Rotten — the fish's level lights up, others dim.
+    ///   nameLabel: species name, already upper-cased by the caller.
     /// </summary>
     public sealed class MarketRow : MonoBehaviour
     {
         [SerializeField] Image icon;
+        [SerializeField] TMP_Text nameLabel;     // species, e.g. "SILVER SARDINE" — optional like the rest
         [SerializeField] TMP_Text weightLabel;   // e.g. "2.34 Kg"
         [SerializeField] TMP_Text priceLabel;    // sell value of this single fish
         [SerializeField] Image[] freshDots;      // exactly 3: Fresh / Stale / Rotten
         [SerializeField] Button sellButton;
 
-        public void Set(Sprite sprite, float weightKg, int freshIndex, int price, Action onSell)
+        public void Set(Sprite sprite, string species, float weightKg, int freshIndex, int price, Action onSell)
         {
             if (icon != null && sprite != null) icon.sprite = sprite;
+            if (nameLabel != null) nameLabel.text = species;
             if (weightLabel != null) weightLabel.text = $"{weightKg:0.00}";
             if (priceLabel != null) priceLabel.text = price.ToString();
             if (freshDots != null)

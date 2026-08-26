@@ -18,7 +18,7 @@ namespace RustyFishing
     {
         sealed class Spec
         {
-            public string name; public float min, max; public Func<float> get; public Action<float> set;
+            public string name, desc; public float min, max; public Func<float> get; public Action<float> set;
             public Text valueLabel; public Slider slider;
         }
 
@@ -44,36 +44,62 @@ namespace RustyFishing
 
         void BuildSpecs()
         {
-            Add("sinkBase", .2f, 5, () => GameCatalog.HookSink, v => GameCatalog.HookSink = v);
-            Add("sinkMax", 2, 8, () => GameCatalog.HookSinkMax, v => GameCatalog.HookSinkMax = v);
-            Add("upForce", 2, 16, () => GameCatalog.HookUpForce, v => GameCatalog.HookUpForce = v);
-            Add("riseMax", .4f, 5, () => GameCatalog.HookRiseMax, v => GameCatalog.HookRiseMax = v);
-            Add("upDrag", .1f, 1, () => GameCatalog.HookUpDrag, v => GameCatalog.HookUpDrag = v);
-            Add("horizontal", 1, 14, () => GameCatalog.HookHorizontal, v => GameCatalog.HookHorizontal = v);
-            Add("retract", 2, 24, () => GameCatalog.HookRetract, v => GameCatalog.HookRetract = v);
-            Add("lineSeconds", 3, 30, () => GameCatalog.HookLineSeconds, v => GameCatalog.HookLineSeconds = v);
-            Add("maxDepthU", 10, 40, () => GameCatalog.HookMaxDepthUnits, v => GameCatalog.HookMaxDepthUnits = v);
-            Add("worldScroll", 16, 64, () => GameCatalog.WorldScrollPpu, v => GameCatalog.WorldScrollPpu = v);
-            Add("fishSwim", 10, 64, () => GameCatalog.FishSwimPpu, v => GameCatalog.FishSwimPpu = v);
-            Add("fishWander", 0, 60, () => GameCatalog.FishWanderPx, v => GameCatalog.FishWanderPx = v);
-            Add("fishSurfaceY", -200, 500, () => GameCatalog.FishSurfaceY, v => GameCatalog.FishSurfaceY = v);
-            Add("fishDepthPx", 5, 45, () => GameCatalog.FishDepthPx, v => GameCatalog.FishDepthPx = v);
-            Add("fishSize", .4f, 2f, () => GameCatalog.FishSizeScale, v => GameCatalog.FishSizeScale = v);
-            Add("dockGap", 18, 70, () => GameCatalog.DockGap, v => { GameCatalog.DockGap = v; GameCatalog.LayoutDocks(); });
-            Add("lineWidth", 1, 16, () => GameCatalog.LineWidthPx, v => GameCatalog.LineWidthPx = v);
-            Add("spdNeedleStart", -180, 180, () => GameCatalog.SpeedNeedleStart, v => GameCatalog.SpeedNeedleStart = v);
-            Add("spdNeedleSweep", 0, 360, () => GameCatalog.SpeedNeedleSweep, v => GameCatalog.SpeedNeedleSweep = v);
-            Add("trailMinDist", 4, 40, () => GameCatalog.LineTrailMinDist, v => GameCatalog.LineTrailMinDist = v);
+            Add("sinkBase", .2f, 5, () => GameCatalog.HookSink, v => GameCatalog.HookSink = v, "Tốc độ chìm cơ bản của lưỡi câu");
+            Add("sinkMax", 2, 8, () => GameCatalog.HookSinkMax, v => GameCatalog.HookSinkMax = v, "Tốc độ chìm tối đa khi giữ gạt xuống");
+            Add("upForce", 2, 16, () => GameCatalog.HookUpForce, v => GameCatalog.HookUpForce = v, "Lực kéo lưỡi câu lên khi gạt lên");
+            Add("riseMax", .4f, 5, () => GameCatalog.HookRiseMax, v => GameCatalog.HookRiseMax = v, "Tốc độ nổi lên tối đa của lưỡi câu");
+            Add("upDrag", .1f, 1, () => GameCatalog.HookUpDrag, v => GameCatalog.HookUpDrag = v, "Độ cản khi kéo lên (cao = chậm hơn)");
+            Add("horizontal", 1, 14, () => GameCatalog.HookHorizontal, v => GameCatalog.HookHorizontal = v, "Tốc độ di chuyển ngang của lưỡi câu");
+            Add("retract", 2, 24, () => GameCatalog.HookRetract, v => GameCatalog.HookRetract = v, "Tốc độ thu lưỡi câu về thuyền");
+            Add("lineSeconds", 3, 30, () => GameCatalog.HookLineSeconds, v => GameCatalog.HookLineSeconds = v, "Thời gian tối đa mỗi lần thả câu (giây)");
+            Add("maxDepthU", 10, 40, () => GameCatalog.HookMaxDepthUnits, v => GameCatalog.HookMaxDepthUnits = v, "Độ sâu tối đa lưỡi câu xuống được");
+            Add("worldScroll", 16, 64, () => GameCatalog.WorldScrollPpu, v => GameCatalog.WorldScrollPpu = v, "Tốc độ cuộn cảnh biển theo thuyền (px/đơn vị)");
+            Add("fishSwim", 10, 64, () => GameCatalog.FishSwimPpu, v => GameCatalog.FishSwimPpu = v, "Tốc độ bơi ngang của cá");
+            Add("fishWander", 0, 60, () => GameCatalog.FishWanderPx, v => GameCatalog.FishWanderPx = v, "Biên độ nhấp nhô lên xuống của cá");
+            Add("fishRoam", 40, 500, () => GameCatalog.FishRoamHalfWidthPx, v => GameCatalog.FishRoamHalfWidthPx = v, "Khoảng cá bơi quanh chỗ ở của nó (px)");
+            Add("fishCull", 400, 1200, () => GameCatalog.FishCullPx, v => GameCatalog.FishCullPx = v, "Cá ẩn đi khi trôi ra ngoài khoảng này (px)");
+            Add("fishDensity", .1f, 1.5f, () => GameCatalog.FishFieldDensity, v => GameCatalog.FishFieldDensity = v, "Mật độ cá trên mỗi đơn vị biển (theo vùng)");
+            Add("fishFieldMax", 10, 120, () => GameCatalog.FishFieldMax, v => GameCatalog.FishFieldMax = Mathf.RoundToInt(v), "Số cá tối đa trong cả biển");
+            Add("fishSize", .4f, 2f, () => GameCatalog.FishSizeScale, v => GameCatalog.FishSizeScale = v, "Hệ số phóng to/thu nhỏ toàn bộ cá");
+            Add("dockGap", 18, 70, () => GameCatalog.DockGap, v => { GameCatalog.DockGap = v; GameCatalog.LayoutDocks(); }, "Khoảng cách nhỏ nhất giữa các cảng");
+            Add("dockGapVar", 1, 3.5f, () => GameCatalog.DockGapVarMax, v => { GameCatalog.DockGapVarMax = v; GameCatalog.ReseedDockGaps(); GameCatalog.LayoutDocks(); }, "Độ biến động khoảng cách cảng (1 = đều nhau)");
+            Add("portSparse", 0, 40, () => GameCatalog.FishPortSparseRadius, v => GameCatalog.FishPortSparseRadius = v, "Bán kính quanh cảng ít cá (dụ đi xa)");
+            Add("lineWidth", 1, 60, () => GameCatalog.LineWidthPx, v => GameCatalog.LineWidthPx = v, "Độ dày của dây câu");
+            Add("lineSag", 0, 180, () => GameCatalog.LineSagPx, v => GameCatalog.LineSagPx = v, "Fishing-line curve sag");
+            Add("hookScale", .5f, 5f, () => GameCatalog.HookScale, v => GameCatalog.HookScale = v, "Kích thước hiển thị của lưỡi câu");
+            Add("spdNeedleStart", -180, 180, () => GameCatalog.SpeedNeedleStart, v => GameCatalog.SpeedNeedleStart = v, "Góc bắt đầu của kim đồng hồ tốc độ");
+            Add("spdNeedleSweep", 0, 360, () => GameCatalog.SpeedNeedleSweep, v => GameCatalog.SpeedNeedleSweep = v, "Góc quét của kim đồng hồ tốc độ");
+            Add("trailMinDist", 4, 40, () => GameCatalog.LineTrailMinDist, v => GameCatalog.LineTrailMinDist = v, "Khoảng cách giữa các điểm vẽ dây câu");
+            // One density slider per depth band, then one per zone (data-driven — follows SeaMap).
+            for (int bi = 0; bi < SeaMap.Bands.Count; bi++)
+            {
+                int idx = bi;
+                Add("density tầng " + SeaMap.Bands[bi].id, 0f, 2f,
+                    () => SeaMap.Bands[idx].densityMul, v => SeaMap.Bands[idx].densityMul = v,
+                    "Mật độ cá tầng sâu " + SeaMap.Bands[bi].id);
+            }
+            for (int zi = 0; zi < SeaMap.Zones.Count; zi++)
+            {
+                int idx = zi;
+                Add("density vùng " + SeaMap.Zones[zi].index, 0f, 2f,
+                    () => SeaMap.Zones[idx].densityMul, v => SeaMap.Zones[idx].densityMul = v,
+                    "Mật độ cá vùng " + SeaMap.Zones[zi].index);
+            }
         }
 
-        void Add(string name, float min, float max, Func<float> get, Action<float> set)
-            => specs.Add(new Spec { name = name, min = min, max = max, get = get, set = set });
+        void Add(string name, float min, float max, Func<float> get, Action<float> set, string desc = "")
+            => specs.Add(new Spec { name = name, desc = desc, min = min, max = max, get = get, set = set });
 
         public Canvas host; // set by FishingGameController to the live GameCanvas (guaranteed to render)
 
         void BuildUi()
         {
             Transform parent;
+            // Prefer an existing canvas (the explicit host, else whatever the scene already renders with)
+            // so the panel never adds a second canvas to a scene that has one.
+            if (host == null)
+                foreach (var c in FindObjectsByType<Canvas>(FindObjectsInactive.Include, FindObjectsSortMode.None))
+                    if (c.isRootCanvas && c.renderMode == RenderMode.ScreenSpaceOverlay) { host = c; break; }
             if (host != null)
             {
                 parent = host.transform; // attach to the working game canvas
@@ -103,31 +129,55 @@ namespace RustyFishing
             var bg = panel.AddComponent<Image>();
             bg.color = new Color(.05f, .09f, .11f, .92f);
 
-            float y = 830;
-            MakeLabel(panel.transform, "GAME FIELD TUNING", new Vector2(0, y), 34, TextAnchor.MiddleCenter);
-            y -= 70;
-            foreach (var s in specs)
-            {
-                MakeRow(panel.transform, s, y);
-                y -= 78; // tightened so the full (growing) list + buttons stay on-screen
-            }
-            MakeButton(panel.transform, "RESET", new Vector2(-140, y - 6), new Vector2(240, 74), ResetAll);
-            MakeButton(panel.transform, "LOG", new Vector2(140, y - 6), new Vector2(240, 74), LogValues);
+            MakeLabel(panel.transform, "GAME FIELD TUNING", new Vector2(0, 806), 34, TextAnchor.MiddleCenter);
+
+            // The list grows past what fits, and each row now carries a Vietnamese description line, so the
+            // rows live in a scroll view between the title and the fixed buttons at the bottom.
+            const float rowH = 104f;
+            float viewTop = 762f, viewBottom = -716f;      // panel-local y bounds of the scroll region
+            float viewH = viewTop - viewBottom;
+            var viewport = NewRect(panel.transform, "Viewport", new Vector2(0, (viewTop + viewBottom) / 2), new Vector2(576, viewH));
+            viewport.gameObject.AddComponent<Image>().color = new Color(1, 1, 1, .001f); // catches drags, near-invisible
+            viewport.gameObject.AddComponent<RectMask2D>();
+            var scroll = viewport.gameObject.AddComponent<ScrollRect>();
+
+            float contentH = specs.Count * rowH;
+            var content = NewRect(viewport, "Content", Vector2.zero, new Vector2(560, contentH));
+            content.anchorMin = content.anchorMax = new Vector2(.5f, 1);
+            content.pivot = new Vector2(.5f, 1);
+            content.anchoredPosition = Vector2.zero;
+            scroll.content = content; scroll.viewport = viewport;
+            scroll.horizontal = false; scroll.vertical = true;
+            scroll.movementType = ScrollRect.MovementType.Clamped; scroll.scrollSensitivity = 34;
+
+            for (int i = 0; i < specs.Count; i++)
+                MakeRow(content, specs[i], contentH / 2 - rowH / 2 - i * rowH); // yCenter of row i in content-local coords
+
+            // Fixed action buttons pinned to the panel bottom (outside the scroll view).
+            MakeButton(panel.transform, "RESET", new Vector2(-140, -762), new Vector2(240, 72), ResetAll);
+            MakeButton(panel.transform, "LOG", new Vector2(140, -762), new Vector2(240, 72), LogValues);
             // Wipe saved progression (coins/day/upgrades/cargo/hull) and restart at Home Harbor.
-            var wipe = MakeButton(panel.transform, "RESET SAVE", new Vector2(0, y - 92), new Vector2(300, 74), ResetSave);
+            var wipe = MakeButton(panel.transform, "RESET SAVE", new Vector2(0, -838), new Vector2(300, 72), ResetSave);
             wipe.image.color = new Color(.62f, .2f, .2f, .96f);
 
             panel.SetActive(false);
             trt.SetAsLastSibling(); // keep the toggle clickable on top of the panel
         }
 
-        void MakeRow(Transform parent, Spec s, float y)
+        // One row: variable name + live value on top, a short Vietnamese description under it, slider below.
+        void MakeRow(Transform parent, Spec s, float yCenter)
         {
-            var label = MakeLabel(parent, s.name, new Vector2(-160, y + 26), 26, TextAnchor.MiddleLeft);
-            label.rectTransform.sizeDelta = new Vector2(300, 40);
-            s.valueLabel = MakeLabel(parent, s.get().ToString("0.##"), new Vector2(190, y + 26), 26, TextAnchor.MiddleRight);
-            s.valueLabel.rectTransform.sizeDelta = new Vector2(180, 40);
-            s.slider = MakeSlider(parent, new Vector2(0, y - 16), new Vector2(540, 40), s.min, s.max, s.get());
+            var label = MakeLabel(parent, s.name, new Vector2(-165, yCenter + 32), 25, TextAnchor.MiddleLeft);
+            label.rectTransform.sizeDelta = new Vector2(320, 36);
+            s.valueLabel = MakeLabel(parent, s.get().ToString("0.##"), new Vector2(205, yCenter + 32), 25, TextAnchor.MiddleRight);
+            s.valueLabel.rectTransform.sizeDelta = new Vector2(150, 36);
+            if (!string.IsNullOrEmpty(s.desc))
+            {
+                var d = MakeLabel(parent, s.desc, new Vector2(-165, yCenter + 5), 17, TextAnchor.MiddleLeft);
+                d.rectTransform.sizeDelta = new Vector2(520, 28);
+                d.color = new Color(.62f, .78f, .82f); // dim teal so it reads as a caption
+            }
+            s.slider = MakeSlider(parent, new Vector2(0, yCenter - 32), new Vector2(540, 36), s.min, s.max, s.get());
             s.slider.onValueChanged.AddListener(v => { s.set(v); s.valueLabel.text = v.ToString("0.##"); });
         }
 

@@ -68,3 +68,31 @@ python sheet_sync.py push
 - The Unity side still reads these values from `GameCatalog.cs` today; loading
   `game-data.json` at runtime is the planned follow-up so the sheet drives the game directly.
 ```
+
+---
+
+# Sea parallax layers
+
+`make_parallax_layers.py` cuts the single painted backdrop
+`Assets/Resources/Art/fishing-world-backdrop.png` into the horizontally-tiling strips that
+`SeaParallax` scrolls at different speeds — sky, far town, near piers, wave line, water column,
+deep murk, seabed, near kelp and drifting motes.
+
+```bash
+pip install -r requirements.txt
+python tools/make_parallax_layers.py     # run from the GameJam/ project root
+```
+
+Output goes to `Assets/Resources/Art/parallax/`. Nothing else reads that folder, so it is safe to
+re-run and let Unity re-import.
+
+Two things to know before editing it:
+
+- The band constants at the top (`WAVE_TOP`, `CROP_X0`, ...) are landmarks **in the source painting**.
+  Replace the painting and they all need re-measuring.
+- Every layer is passed through `seamless()`, which cross-fades the right edge back over the left so
+  the strip tiles without a seam. That costs `FEATHER` pixels of width — the output is always
+  narrower than the crop.
+
+Where each layer sits on screen and how fast it scrolls lives in `SeaParallax.Layers`, not here.
+

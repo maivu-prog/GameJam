@@ -1,0 +1,6068 @@
+fileFormatVersion: 2
+guid: a04395d5a0422a243864225666350857
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1894911684122599278
+    second: motes_0
+  - first:
+      213: -1125375461075911594
+    second: motes_1
+  - first:
+      213: -8307376359658504829
+    second: motes_2
+  - first:
+      213: 5064454822834987021
+    second: motes_3
+  - first:
+      213: 2165624245486763605
+    second: motes_4
+  - first:
+      213: -2996389439397173333
+    second: motes_5
+  - first:
+      213: 1439493961031461254
+    second: motes_6
+  - first:
+      213: -8941852001430341254
+    second: motes_7
+  - first:
+      213: -847503002401319285
+    second: motes_8
+  - first:
+      213: 2567855678386990135
+    second: motes_9
+  - first:
+      213: -3664050670495373922
+    second: motes_10
+  - first:
+      213: 2839400070226996172
+    second: motes_11
+  - first:
+      213: 5509427663965545669
+    second: motes_12
+  - first:
+      213: -7459192531205952865
+    second: motes_13
+  - first:
+      213: -5904363712179278223
+    second: motes_14
+  - first:
+      213: -768519425159512118
+    second: motes_15
+  - first:
+      213: -4372885440417631271
+    second: motes_16
+  - first:
+      213: -226831821319773897
+    second: motes_17
+  - first:
+      213: 8125561779069994688
+    second: motes_18
+  - first:
+      213: 2033525492065477854
+    second: motes_19
+  - first:
+      213: 6892440838666821451
+    second: motes_20
+  - first:
+      213: -7199384586173620366
+    second: motes_21
+  - first:
+      213: -8568774399712798739
+    second: motes_22
+  - first:
+      213: -4172077500792448542
+    second: motes_23
+  - first:
+      213: 5568226938709670946
+    second: motes_24
+  - first:
+      213: 890465432155643824
+    second: motes_25
+  - first:
+      213: -8565176272852096401
+    second: motes_26
+  - first:
+      213: -4666825496384005460
+    second: motes_27
+  - first:
+      213: -9096812811539996742
+    second: motes_28
+  - first:
+      213: 1528543212457970890
+    second: motes_29
+  - first:
+      213: -2382762496194110019
+    second: motes_30
+  - first:
+      213: -3141144752406954445
+    second: motes_31
+  - first:
+      213: 2212630719226674434
+    second: motes_32
+  - first:
+      213: -7623746020540065729
+    second: motes_33
+  - first:
+      213: 8323500120218086683
+    second: motes_34
+  - first:
+      213: -795112898861562150
+    second: motes_35
+  - first:
+      213: -1782714065285935948
+    second: motes_36
+  - first:
+      213: 5299520576428902031
+    second: motes_37
+  - first:
+      213: 6199863275511375868
+    second: motes_38
+  - first:
+      213: 2470908225659516613
+    second: motes_39
+  - first:
+      213: -1039907191165865889
+    second: motes_40
+  - first:
+      213: 2849931577939178179
+    second: motes_41
+  - first:
+      213: 8238110886220613604
+    second: motes_42
+  - first:
+      213: -3175758638031729356
+    second: motes_43
+  - first:
+      213: 6553085628553357724
+    second: motes_44
+  - first:
+      213: -7847754512158368001
+    second: motes_45
+  - first:
+      213: -5125439718156668476
+    second: motes_46
+  - first:
+      213: 4802043344657052877
+    second: motes_47
+  - first:
+      213: 817823381139057304
+    second: motes_48
+  - first:
+      213: 1961787377889251397
+    second: motes_49
+  - first:
+      213: 742986154742004854
+    second: motes_50
+  - first:
+      213: 7138436787607730679
+    second: motes_51
+  - first:
+      213: -1315037650313998564
+    second: motes_52
+  - first:
+      213: -8333770120571496044
+    second: motes_53
+  - first:
+      213: 2662833131184021242
+    second: motes_54
+  - first:
+      213: -2344380952587223868
+    second: motes_55
+  - first:
+      213: -3703793367759178249
+    second: motes_56
+  - first:
+      213: 6610250109481129073
+    second: motes_57
+  - first:
+      213: 1338061875006491816
+    second: motes_58
+  - first:
+      213: 9010749857787226163
+    second: motes_59
+  - first:
+      213: -87959173554679070
+    second: motes_60
+  - first:
+      213: 4081492514312514450
+    second: motes_61
+  - first:
+      213: 1546903957392411826
+    second: motes_62
+  - first:
+      213: -2463932316671696039
+    second: motes_63
+  - first:
+      213: -4203252026601186870
+    second: motes_64
+  - first:
+      213: -7382257416022733207
+    second: motes_65
+  - first:
+      213: -4147818052509450875
+    second: motes_66
+  - first:
+      213: -2504603425263266890
+    second: motes_67
+  - first:
+      213: -2036678311364726005
+    second: motes_68
+  - first:
+      213: -4457039041451784497
+    second: motes_69
+  - first:
+      213: -1767642262160040572
+    second: motes_70
+  - first:
+      213: 5985415690102477095
+    second: motes_71
+  - first:
+      213: 8130093115794478755
+    second: motes_72
+  - first:
+      213: 8519966261234018263
+    second: motes_73
+  - first:
+      213: -8342467956473126337
+    second: motes_74
+  - first:
+      213: -1685301353413429454
+    second: motes_75
+  - first:
+      213: 3587529033008285793
+    second: motes_76
+  - first:
+      213: -1078783474275463819
+    second: motes_77
+  - first:
+      213: 5313712156635573368
+    second: motes_78
+  - first:
+      213: 5863447972493851274
+    second: motes_79
+  - first:
+      213: -2069097299694778274
+    second: motes_80
+  - first:
+      213: 2169283583942391129
+    second: motes_81
+  - first:
+      213: 8503093027862079259
+    second: motes_82
+  - first:
+      213: 819276002464820264
+    second: motes_83
+  - first:
+      213: 3744279355963708990
+    second: motes_84
+  - first:
+      213: -6482794849561722736
+    second: motes_85
+  - first:
+      213: 5490556850975308636
+    second: motes_86
+  - first:
+      213: -6823454648015916610
+    second: motes_87
+  - first:
+      213: -8328921323569860677
+    second: motes_88
+  - first:
+      213: 3592315893467465123
+    second: motes_89
+  - first:
+      213: -243590336577548358
+    second: motes_90
+  - first:
+      213: -5169608581426919342
+    second: motes_91
+  - first:
+      213: -2747669582428980368
+    second: motes_92
+  - first:
+      213: 6612245015386644302
+    second: motes_93
+  - first:
+      213: 4145637593657208122
+    second: motes_94
+  - first:
+      213: -8724335947021408600
+    second: motes_95
+  - first:
+      213: 2757596667638096314
+    second: motes_96
+  - first:
+      213: 6243675350216347939
+    second: motes_97
+  - first:
+      213: -716551543095296530
+    second: motes_98
+  - first:
+      213: -5926056416526348451
+    second: motes_99
+  - first:
+      213: 6508646092156022749
+    second: motes_100
+  - first:
+      213: -7833484857038646472
+    second: motes_101
+  - first:
+      213: 4930494437166113930
+    second: motes_102
+  - first:
+      213: 2749272616089996319
+    second: motes_103
+  - first:
+      213: 7711427842125047673
+    second: motes_104
+  - first:
+      213: 1437455139601356639
+    second: motes_105
+  - first:
+      213: 1942070729204723536
+    second: motes_106
+  - first:
+      213: 4773834505201465940
+    second: motes_107
+  - first:
+      213: 7497287675262224320
+    second: motes_108
+  - first:
+      213: -6208173533153389192
+    second: motes_109
+  - first:
+      213: -2421467735393678628
+    second: motes_110
+  - first:
+      213: 5074456765532115140
+    second: motes_111
+  - first:
+      213: 2186684934713882535
+    second: motes_112
+  - first:
+      213: -6424491023734246551
+    second: motes_113
+  - first:
+      213: -9036947438111755795
+    second: motes_114
+  - first:
+      213: 1019999724833512460
+    second: motes_115
+  - first:
+      213: -7469496592099366020
+    second: motes_116
+  - first:
+      213: -3743789738306094517
+    second: motes_117
+  - first:
+      213: 7702131178257112456
+    second: motes_118
+  - first:
+      213: 231612975502979191
+    second: motes_119
+  - first:
+      213: 8918388525231141281
+    second: motes_120
+  - first:
+      213: 1688606093903775421
+    second: motes_121
+  - first:
+      213: -8166927712355093370
+    second: motes_122
+  - first:
+      213: 773280212400790844
+    second: motes_123
+  - first:
+      213: -350075002066928287
+    second: motes_124
+  - first:
+      213: -8753873110487863021
+    second: motes_125
+  - first:
+      213: 7465174996648184992
+    second: motes_126
+  - first:
+      213: 5675412603979348129
+    second: motes_127
+  - first:
+      213: -2519472786527691265
+    second: motes_128
+  - first:
+      213: 4487990288162411795
+    second: motes_129
+  - first:
+      213: -5481830506411435836
+    second: motes_130
+  - first:
+      213: -1349454299802791995
+    second: motes_131
+  - first:
+      213: 651920163207303610
+    second: motes_132
+  - first:
+      213: 5567259740614880435
+    second: motes_133
+  - first:
+      213: 1784521825249644388
+    second: motes_134
+  - first:
+      213: 2738186210050262254
+    second: motes_135
+  - first:
+      213: -932174713617907047
+    second: motes_136
+  - first:
+      213: 6232489585817075905
+    second: motes_137
+  - first:
+      213: 7236746240518831444
+    second: motes_138
+  - first:
+      213: 253065979561110487
+    second: motes_139
+  - first:
+      213: -3366180014523435382
+    second: motes_140
+  - first:
+      213: -4755884027237739796
+    second: motes_141
+  - first:
+      213: -7071843739831874557
+    second: motes_142
+  - first:
+      213: -2596082542535442878
+    second: motes_143
+  - first:
+      213: 7773786926431945566
+    second: motes_144
+  - first:
+      213: 133812800146096271
+    second: motes_145
+  - first:
+      213: -451366643006916747
+    second: motes_146
+  - first:
+      213: -3669851412009281928
+    second: motes_147
+  - first:
+      213: 2741764582564824608
+    second: motes_148
+  - first:
+      213: -1566094575411040536
+    second: motes_149
+  - first:
+      213: -3828401979120191515
+    second: motes_150
+  - first:
+      213: -6715993289512694983
+    second: motes_151
+  - first:
+      213: 5219550553234787274
+    second: motes_152
+  - first:
+      213: -487708576461074763
+    second: motes_153
+  - first:
+      213: 2767553255338436571
+    second: motes_154
+  - first:
+      213: 6529521148061435351
+    second: motes_155
+  - first:
+      213: 367975912740658495
+    second: motes_156
+  - first:
+      213: 5564926770406902585
+    second: motes_157
+  - first:
+      213: 6833990685622721857
+    second: motes_158
+  - first:
+      213: 1192981965502668070
+    second: motes_159
+  - first:
+      213: 2151432955383182049
+    second: motes_160
+  - first:
+      213: -1404059353696861495
+    second: motes_161
+  - first:
+      213: 5437632057440075236
+    second: motes_162
+  - first:
+      213: 9203948398724750874
+    second: motes_163
+  - first:
+      213: 1280248279319655704
+    second: motes_164
+  - first:
+      213: 5125917091321343120
+    second: motes_165
+  - first:
+      213: 1533088700547676452
+    second: motes_166
+  - first:
+      213: -5172854617475033905
+    second: motes_167
+  - first:
+      213: 5102005401122306452
+    second: motes_168
+  - first:
+      213: 1659485111092141850
+    second: motes_169
+  - first:
+      213: -8511023052410892836
+    second: motes_170
+  - first:
+      213: 1039167723465051807
+    second: motes_171
+  - first:
+      213: 1721103874020502212
+    second: motes_172
+  - first:
+      213: 6512693304876184717
+    second: motes_173
+  - first:
+      213: 1390839575624290989
+    second: motes_174
+  - first:
+      213: 1592483446325012881
+    second: motes_175
+  - first:
+      213: 6987990356794021923
+    second: motes_176
+  - first:
+      213: 248041585552192046
+    second: motes_177
+  - first:
+      213: -1551391128188527924
+    second: motes_178
+  - first:
+      213: -7488247030573948944
+    second: motes_179
+  - first:
+      213: 7432170829676390311
+    second: motes_180
+  - first:
+      213: -7980659681104465740
+    second: motes_181
+  - first:
+      213: 1700235621032838648
+    second: motes_182
+  - first:
+      213: -8303869477437213038
+    second: motes_183
+  - first:
+      213: 1912642551928170454
+    second: motes_184
+  - first:
+      213: 3045217233758975858
+    second: motes_185
+  - first:
+      213: -6988143900965170674
+    second: motes_186
+  - first:
+      213: -6885060854319272280
+    second: motes_187
+  - first:
+      213: 5586581305953761539
+    second: motes_188
+  - first:
+      213: 7939428866431058933
+    second: motes_189
+  - first:
+      213: 8990520613517315680
+    second: motes_190
+  - first:
+      213: 7219453520222740583
+    second: motes_191
+  - first:
+      213: 6240083907425656061
+    second: motes_192
+  - first:
+      213: 8891033958416711326
+    second: motes_193
+  - first:
+      213: -8077120574942956282
+    second: motes_194
+  - first:
+      213: -7799954863339435006
+    second: motes_195
+  - first:
+      213: -5406040630992063385
+    second: motes_196
+  - first:
+      213: -3801105995652797408
+    second: motes_197
+  - first:
+      213: 7875243995708219803
+    second: motes_198
+  - first:
+      213: 7864866485694027723
+    second: motes_199
+  - first:
+      213: 7011253353811644467
+    second: motes_200
+  - first:
+      213: -9049660761912706604
+    second: motes_201
+  - first:
+      213: -7752920507302182009
+    second: motes_202
+  - first:
+      213: 5606007478148712768
+    second: motes_203
+  - first:
+      213: 295740791169606985
+    second: motes_204
+  - first:
+      213: 6208305100886142244
+    second: motes_205
+  - first:
+      213: -5936204603232563454
+    second: motes_206
+  - first:
+      213: -6762546195676105914
+    second: motes_207
+  - first:
+      213: 5080668931079148300
+    second: motes_208
+  - first:
+      213: 846969062792879002
+    second: motes_209
+  - first:
+      213: -6875538727623418989
+    second: motes_210
+  - first:
+      213: 6593240043749236198
+    second: motes_211
+  - first:
+      213: -4493394582826540846
+    second: motes_212
+  - first:
+      213: 1135553334021520802
+    second: motes_213
+  - first:
+      213: 1960974488575200
+    second: motes_214
+  - first:
+      213: -4315755374220291996
+    second: motes_215
+  - first:
+      213: 5489213049042898379
+    second: motes_216
+  - first:
+      213: -817093360105224045
+    second: motes_217
+  - first:
+      213: 2090036434851906969
+    second: motes_218
+  - first:
+      213: -7919106823011101432
+    second: motes_219
+  - first:
+      213: 3999757495250108962
+    second: motes_220
+  - first:
+      213: 1527285164985691709
+    second: motes_221
+  - first:
+      213: 7279002929954683312
+    second: motes_222
+  - first:
+      213: -7717421021073809390
+    second: motes_223
+  - first:
+      213: 1332835269625798714
+    second: motes_224
+  - first:
+      213: -646378780515371564
+    second: motes_225
+  - first:
+      213: -985114036968421040
+    second: motes_226
+  - first:
+      213: 7704252008103081840
+    second: motes_227
+  - first:
+      213: 2528366170903511202
+    second: motes_228
+  - first:
+      213: 8661089599427434386
+    second: motes_229
+  - first:
+      213: -3689182921961875554
+    second: motes_230
+  - first:
+      213: -3904786493633847097
+    second: motes_231
+  - first:
+      213: -6968437715428599418
+    second: motes_232
+  - first:
+      213: -4531485832556172991
+    second: motes_233
+  - first:
+      213: 267202692870015592
+    second: motes_234
+  - first:
+      213: -5666608863584659181
+    second: motes_235
+  - first:
+      213: 6399277806358135547
+    second: motes_236
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: motes_0
+      rect:
+        serializedVersion: 2
+        x: 121
+        y: 504
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 290a22becdbe3b5e0800000000000000
+      internalID: -1894911684122599278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_1
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 500
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65cf0ab0bfcd160f0800000000000000
+      internalID: -1125375461075911594
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_2
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 500
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38db31b173546bc80800000000000000
+      internalID: -8307376359658504829
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_3
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 504
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d00e71824de884640800000000000000
+      internalID: 5064454822834987021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_4
+      rect:
+        serializedVersion: 2
+        x: 818
+        y: 506
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55e363df6c7dd0e10800000000000000
+      internalID: 2165624245486763605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_5
+      rect:
+        serializedVersion: 2
+        x: 1044
+        y: 501
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba7efff2eafaa66d0800000000000000
+      internalID: -2996389439397173333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_6
+      rect:
+        serializedVersion: 2
+        x: 1218
+        y: 504
+        width: 11
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 689a99b712c1af310800000000000000
+      internalID: 1439493961031461254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_7
+      rect:
+        serializedVersion: 2
+        x: 780
+        y: 489
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a79f0ac0bf828e380800000000000000
+      internalID: -8941852001430341254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_8
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 495
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b86dac372801d34f0800000000000000
+      internalID: -847503002401319285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_9
+      rect:
+        serializedVersion: 2
+        x: 841
+        y: 486
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73ce9b8622bd2a320800000000000000
+      internalID: 2567855678386990135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_10
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 492
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e956712045da62dc0800000000000000
+      internalID: -3664050670495373922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_11
+      rect:
+        serializedVersion: 2
+        x: 1097
+        y: 488
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccb6911f153976720800000000000000
+      internalID: 2839400070226996172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_12
+      rect:
+        serializedVersion: 2
+        x: 104
+        y: 479
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c4606a254b657c40800000000000000
+      internalID: 5509427663965545669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_13
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 482
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9ae832d9ef9b7890800000000000000
+      internalID: -7459192531205952865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_14
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 475
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17ee8d68c7c7f0ea0800000000000000
+      internalID: -5904363712179278223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_15
+      rect:
+        serializedVersion: 2
+        x: 561
+        y: 479
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acf316497aba555f0800000000000000
+      internalID: -768519425159512118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_16
+      rect:
+        serializedVersion: 2
+        x: 608
+        y: 478
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d3fd684cd36053c0800000000000000
+      internalID: -4372885440417631271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_17
+      rect:
+        serializedVersion: 2
+        x: 890
+        y: 485
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 731ea7a09a12adcf0800000000000000
+      internalID: -226831821319773897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_18
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 477
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c645f1136bc3c070800000000000000
+      internalID: 8125561779069994688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_19
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 463
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed4a34439a8883c10800000000000000
+      internalID: 2033525492065477854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_20
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 460
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4f9120dc6ed6af50800000000000000
+      internalID: 6892440838666821451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_21
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 458
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27fd2b3ecd5a61c90800000000000000
+      internalID: -7199384586173620366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_22
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 467
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de758a03519951980800000000000000
+      internalID: -8568774399712798739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_23
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 458
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e9dddd1e9dc916c0800000000000000
+      internalID: -4172077500792448542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_24
+      rect:
+        serializedVersion: 2
+        x: 948
+        y: 461
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22cfc8626e0564d40800000000000000
+      internalID: 5568226938709670946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_25
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 452
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bfd668b7919b5c00800000000000000
+      internalID: 890465432155643824
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_26
+      rect:
+        serializedVersion: 2
+        x: 382
+        y: 449
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6aeb026f81622980800000000000000
+      internalID: -8565176272852096401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_27
+      rect:
+        serializedVersion: 2
+        x: 920
+        y: 452
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caa9b4bdfea1c3fb0800000000000000
+      internalID: -4666825496384005460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_28
+      rect:
+        serializedVersion: 2
+        x: 960
+        y: 453
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abf9fe3e1f0a1c180800000000000000
+      internalID: -9096812811539996742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_29
+      rect:
+        serializedVersion: 2
+        x: 998
+        y: 445
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acc446204f9763510800000000000000
+      internalID: 1528543212457970890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_30
+      rect:
+        serializedVersion: 2
+        x: 1116
+        y: 447
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbd1a36522abeeed0800000000000000
+      internalID: -2382762496194110019
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_31
+      rect:
+        serializedVersion: 2
+        x: 54
+        y: 431
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 33e73bc7d796864d0800000000000000
+      internalID: -3141144752406954445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_32
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 440
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20d7f968ae7d4be10800000000000000
+      internalID: 2212630719226674434
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_33
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 437
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3859ebf263033690800000000000000
+      internalID: -7623746020540065729
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_34
+      rect:
+        serializedVersion: 2
+        x: 1144
+        y: 435
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1d25817243038370800000000000000
+      internalID: 8323500120218086683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_35
+      rect:
+        serializedVersion: 2
+        x: 1182
+        y: 440
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad6860bf70137f4f0800000000000000
+      internalID: -795112898861562150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_36
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 430
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bc0a8ab0078247e0800000000000000
+      internalID: -1782714065285935948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_37
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 430
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f860bedd2edab8940800000000000000
+      internalID: 5299520576428902031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_38
+      rect:
+        serializedVersion: 2
+        x: 1000
+        y: 425
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf768d00dc65a0650800000000000000
+      internalID: 6199863275511375868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_39
+      rect:
+        serializedVersion: 2
+        x: 1195
+        y: 428
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c6b60790fd6a4220800000000000000
+      internalID: 2470908225659516613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_40
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 408
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f503f275be18191f0800000000000000
+      internalID: -1039907191165865889
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_41
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 409
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3c2bb39abadfc8720800000000000000
+      internalID: 2849931577939178179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_42
+      rect:
+        serializedVersion: 2
+        x: 510
+        y: 412
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e745712436a35270800000000000000
+      internalID: 8238110886220613604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_43
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 416
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43d8db738507de3d0800000000000000
+      internalID: -3175758638031729356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_44
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 409
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c99e3a0d8ac31fa50800000000000000
+      internalID: 6553085628553357724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_45
+      rect:
+        serializedVersion: 2
+        x: 778
+        y: 415
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffed452b9dc271390800000000000000
+      internalID: -7847754512158368001
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_46
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 406
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c1f7996bb7ced8b0800000000000000
+      internalID: -5125439718156668476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_47
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 397
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc4ff4acaf844a240800000000000000
+      internalID: 4802043344657052877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_48
+      rect:
+        serializedVersion: 2
+        x: 594
+        y: 405
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 89a6dc9380e795b00800000000000000
+      internalID: 817823381139057304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_49
+      rect:
+        serializedVersion: 2
+        x: 666
+        y: 397
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5401fe7e93ba93b10800000000000000
+      internalID: 1961787377889251397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_50
+      rect:
+        serializedVersion: 2
+        x: 1028
+        y: 398
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67c3e62a8fd9f4a00800000000000000
+      internalID: 742986154742004854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_51
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 392
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f970f0ff62d01360800000000000000
+      internalID: 7138436787607730679
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_52
+      rect:
+        serializedVersion: 2
+        x: 366
+        y: 392
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1f05c2793c00cde0800000000000000
+      internalID: -1315037650313998564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_53
+      rect:
+        serializedVersion: 2
+        x: 565
+        y: 392
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4995293ca30885c80800000000000000
+      internalID: -8333770120571496044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_54
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 385
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: afe5d50ef9844f420800000000000000
+      internalID: 2662833131184021242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_55
+      rect:
+        serializedVersion: 2
+        x: 953
+        y: 385
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ccb8d6d1f5177fd0800000000000000
+      internalID: -2344380952587223868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_56
+      rect:
+        serializedVersion: 2
+        x: 1060
+        y: 389
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7f534493e8b799cc0800000000000000
+      internalID: -3703793367759178249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_57
+      rect:
+        serializedVersion: 2
+        x: 187
+        y: 382
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1741c14b3735cbb50800000000000000
+      internalID: 6610250109481129073
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_58
+      rect:
+        serializedVersion: 2
+        x: 528
+        y: 377
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ac414b9f20c19210800000000000000
+      internalID: 1338061875006491816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_59
+      rect:
+        serializedVersion: 2
+        x: 869
+        y: 382
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3382f41314d9c0d70800000000000000
+      internalID: 9010749857787226163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_60
+      rect:
+        serializedVersion: 2
+        x: 1137
+        y: 381
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e25981099187cef0800000000000000
+      internalID: -87959173554679070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_61
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 365
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 29b630d21df54a830800000000000000
+      internalID: 4081492514312514450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_62
+      rect:
+        serializedVersion: 2
+        x: 268
+        y: 362
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bc450214f4b77510800000000000000
+      internalID: 1546903957392411826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_63
+      rect:
+        serializedVersion: 2
+        x: 577
+        y: 370
+        width: 14
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 953ad2acc9a5ecdd0800000000000000
+      internalID: -2463932316671696039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_64
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 365
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac9def43d8c0ba5c0800000000000000
+      internalID: -4203252026601186870
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_65
+      rect:
+        serializedVersion: 2
+        x: 820
+        y: 364
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96ec8753ef3fc8990800000000000000
+      internalID: -7382257416022733207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_66
+      rect:
+        serializedVersion: 2
+        x: 737
+        y: 349
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58db833157dff66c0800000000000000
+      internalID: -4147818052509450875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_67
+      rect:
+        serializedVersion: 2
+        x: 816
+        y: 354
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6b3d4f5647cdd3dd0800000000000000
+      internalID: -2504603425263266890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_68
+      rect:
+        serializedVersion: 2
+        x: 922
+        y: 352
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b03fc59ddd34cb3e0800000000000000
+      internalID: -2036678311364726005
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_69
+      rect:
+        serializedVersion: 2
+        x: 1183
+        y: 354
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc608303b9a6522c0800000000000000
+      internalID: -4457039041451784497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_70
+      rect:
+        serializedVersion: 2
+        x: 755
+        y: 343
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48d9bf95ab21877e0800000000000000
+      internalID: -1767642262160040572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_71
+      rect:
+        serializedVersion: 2
+        x: 1138
+        y: 342
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7219b99abd7701350800000000000000
+      internalID: 5985415690102477095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_72
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 331
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a657cd1d94e3d070800000000000000
+      internalID: 8130093115794478755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_73
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 324
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d7aa238c200d3670800000000000000
+      internalID: 8519966261234018263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_74
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 330
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3227580899993c80800000000000000
+      internalID: -8342467956473126337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_75
+      rect:
+        serializedVersion: 2
+        x: 670
+        y: 333
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 237be42295b9c98e0800000000000000
+      internalID: -1685301353413429454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_76
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 326
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1680cd1e5a679c130800000000000000
+      internalID: 3587529033008285793
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_77
+      rect:
+        serializedVersion: 2
+        x: 715
+        y: 333
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57dcf3255246701f0800000000000000
+      internalID: -1078783474275463819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_78
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 314
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87c20fe9d091eb940800000000000000
+      internalID: 5313712156635573368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_79
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 318
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8afa777dd62f5150800000000000000
+      internalID: 5863447972493851274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_80
+      rect:
+        serializedVersion: 2
+        x: 784
+        y: 317
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5809fde7f61943e0800000000000000
+      internalID: -2069097299694778274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_81
+      rect:
+        serializedVersion: 2
+        x: 935
+        y: 322
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 955f8fd1de7da1e10800000000000000
+      internalID: 2169283583942391129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_82
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 315
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b17e1d9be0e010670800000000000000
+      internalID: 8503093027862079259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_83
+      rect:
+        serializedVersion: 2
+        x: 1134
+        y: 323
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82ceaebfe27ae5b00800000000000000
+      internalID: 819276002464820264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_84
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 313
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e369b087c3a56f330800000000000000
+      internalID: 3744279355963708990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_85
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 311
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09044208e6c7806a0800000000000000
+      internalID: -6482794849561722736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_86
+      rect:
+        serializedVersion: 2
+        x: 368
+        y: 313
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5b7871ad50623c40800000000000000
+      internalID: 5490556850975308636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_87
+      rect:
+        serializedVersion: 2
+        x: 648
+        y: 309
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eb1f50c56283e41a0800000000000000
+      internalID: -6823454648015916610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_88
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 307
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbf217a4f2ab96c80800000000000000
+      internalID: -8328921323569860677
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_89
+      rect:
+        serializedVersion: 2
+        x: 1089
+        y: 305
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3a54e1fa5487ad130800000000000000
+      internalID: 3592315893467465123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_90
+      rect:
+        serializedVersion: 2
+        x: 23
+        y: 301
+        width: 8
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abfc39521e79e9cf0800000000000000
+      internalID: -243590336577548358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_91
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 297
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 258cc3c826cd148b0800000000000000
+      internalID: -5169608581426919342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_92
+      rect:
+        serializedVersion: 2
+        x: 447
+        y: 295
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07bbc2392115ed9d0800000000000000
+      internalID: -2747669582428980368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_93
+      rect:
+        serializedVersion: 2
+        x: 538
+        y: 302
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4fd7fdeec963cb50800000000000000
+      internalID: 6612245015386644302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_94
+      rect:
+        serializedVersion: 2
+        x: 706
+        y: 300
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3d61794d63488930800000000000000
+      internalID: 4145637593657208122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_95
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 293
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a62e900eaeece680800000000000000
+      internalID: -8724335947021408600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_96
+      rect:
+        serializedVersion: 2
+        x: 1235
+        y: 296
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab1ae501f83f44620800000000000000
+      internalID: 2757596667638096314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_97
+      rect:
+        serializedVersion: 2
+        x: 164
+        y: 280
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 321128e86adf5a650800000000000000
+      internalID: 6243675350216347939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_98
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 281
+        width: 13
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eedfb820b2c4e06f0800000000000000
+      internalID: -716551543095296530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_99
+      rect:
+        serializedVersion: 2
+        x: 986
+        y: 279
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5fc506361b62cda0800000000000000
+      internalID: -5926056416526348451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_100
+      rect:
+        serializedVersion: 2
+        x: 1078
+        y: 288
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddfa1b3f22b535a50800000000000000
+      internalID: 6508646092156022749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_101
+      rect:
+        serializedVersion: 2
+        x: 1090
+        y: 280
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8335fcea60fd94390800000000000000
+      internalID: -7833484857038646472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_102
+      rect:
+        serializedVersion: 2
+        x: 1181
+        y: 282
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a8463565192ac6440800000000000000
+      internalID: 4930494437166113930
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_103
+      rect:
+        serializedVersion: 2
+        x: 1207
+        y: 279
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f1cc0c8c0e0672620800000000000000
+      internalID: 2749272616089996319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_104
+      rect:
+        serializedVersion: 2
+        x: 290
+        y: 259
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 977abe8f3ce740b60800000000000000
+      internalID: 7711427842125047673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_105
+      rect:
+        serializedVersion: 2
+        x: 323
+        y: 263
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f579f7065ddd2f310800000000000000
+      internalID: 1437455139601356639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_106
+      rect:
+        serializedVersion: 2
+        x: 410
+        y: 269
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05f6ee6e90f93fa10800000000000000
+      internalID: 1942070729204723536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_107
+      rect:
+        serializedVersion: 2
+        x: 462
+        y: 263
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45a390b8031104240800000000000000
+      internalID: 4773834505201465940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_108
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 268
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0c74be61b67bb0860800000000000000
+      internalID: 7497287675262224320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_109
+      rect:
+        serializedVersion: 2
+        x: 925
+        y: 269
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 875196c501328d9a0800000000000000
+      internalID: -6208173533153389192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_110
+      rect:
+        serializedVersion: 2
+        x: 1113
+        y: 268
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cda4ac49ce7356ed0800000000000000
+      internalID: -2421467735393678628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_111
+      rect:
+        serializedVersion: 2
+        x: 193
+        y: 252
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c09e99ea871c6640800000000000000
+      internalID: 5074456765532115140
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_112
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 253
+        width: 14
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a7b151dc5aa85e10800000000000000
+      internalID: 2186684934713882535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_113
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 259
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 96372abc37f97d6a0800000000000000
+      internalID: -6424491023734246551
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_114
+      rect:
+        serializedVersion: 2
+        x: 508
+        y: 248
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de1f8715f20569280800000000000000
+      internalID: -9036947438111755795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_115
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 256
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0c92b57854c72e00800000000000000
+      internalID: 1019999724833512460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_116
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 244
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7b2de0bc64075890800000000000000
+      internalID: -7469496592099366020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_117
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 247
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4a338681136b0cc0800000000000000
+      internalID: -3743789738306094517
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_118
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 245
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 88dd97dbf7773ea60800000000000000
+      internalID: 7702131178257112456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_119
+      rect:
+        serializedVersion: 2
+        x: 787
+        y: 245
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 770f93a26cad63300800000000000000
+      internalID: 231612975502979191
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_120
+      rect:
+        serializedVersion: 2
+        x: 906
+        y: 248
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a1725fac1b74cb70800000000000000
+      internalID: 8918388525231141281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_121
+      rect:
+        serializedVersion: 2
+        x: 1109
+        y: 236
+        width: 13
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: db6c1b8bb422f6710800000000000000
+      internalID: 1688606093903775421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_122
+      rect:
+        serializedVersion: 2
+        x: 1175
+        y: 242
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 684f7ce048e39ae80800000000000000
+      internalID: -8166927712355093370
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_123
+      rect:
+        serializedVersion: 2
+        x: 1208
+        y: 244
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c3ddcf3914e3bba00800000000000000
+      internalID: 773280212400790844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_124
+      rect:
+        serializedVersion: 2
+        x: 131
+        y: 220
+        width: 15
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16d7e01f3a8442bf0800000000000000
+      internalID: -350075002066928287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_125
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 227
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 311f68839cef38680800000000000000
+      internalID: -8753873110487863021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_126
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 227
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0acc7557b11a99760800000000000000
+      internalID: 7465174996648184992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_127
+      rect:
+        serializedVersion: 2
+        x: 938
+        y: 234
+        width: 17
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a8b6f591bd13ce40800000000000000
+      internalID: 5675412603979348129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_128
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 230
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ffdd0c179d8090dd0800000000000000
+      internalID: -2519472786527691265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_129
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 213
+        width: 25
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 315d251836b884e30800000000000000
+      internalID: 4487990288162411795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_130
+      rect:
+        serializedVersion: 2
+        x: 1061
+        y: 216
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4c8527ac230ace3b0800000000000000
+      internalID: -5481830506411435836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_131
+      rect:
+        serializedVersion: 2
+        x: 1071
+        y: 216
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cf81abc676c54de0800000000000000
+      internalID: -1349454299802791995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_132
+      rect:
+        serializedVersion: 2
+        x: 1147
+        y: 224
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ab1d2e53fe51c0900800000000000000
+      internalID: 651920163207303610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_133
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 204
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3bceeabcc31e24d40800000000000000
+      internalID: 5567259740614880435
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_134
+      rect:
+        serializedVersion: 2
+        x: 319
+        y: 213
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46fcfef2525e3c810800000000000000
+      internalID: 1784521825249644388
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_135
+      rect:
+        serializedVersion: 2
+        x: 807
+        y: 205
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee44beab9ddfff520800000000000000
+      internalID: 2738186210050262254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_136
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 209
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 992043e69004013f0800000000000000
+      internalID: -932174713617907047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_137
+      rect:
+        serializedVersion: 2
+        x: 887
+        y: 209
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c0c2f4d1404e7650800000000000000
+      internalID: 6232489585817075905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_138
+      rect:
+        serializedVersion: 2
+        x: 1227
+        y: 211
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 45db4c32d561e6460800000000000000
+      internalID: 7236746240518831444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_139
+      rect:
+        serializedVersion: 2
+        x: 230
+        y: 198
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7dbe978ea22138300800000000000000
+      internalID: 253065979561110487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_140
+      rect:
+        serializedVersion: 2
+        x: 580
+        y: 197
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a86bf409c1de841d0800000000000000
+      internalID: -3366180014523435382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_141
+      rect:
+        serializedVersion: 2
+        x: 840
+        y: 194
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ce25a8bcca4bffdb0800000000000000
+      internalID: -4755884027237739796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_142
+      rect:
+        serializedVersion: 2
+        x: 995
+        y: 201
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30c404c3693cbdd90800000000000000
+      internalID: -7071843739831874557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_143
+      rect:
+        serializedVersion: 2
+        x: 1013
+        y: 200
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 24ef494aeacd8fbd0800000000000000
+      internalID: -2596082542535442878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_144
+      rect:
+        serializedVersion: 2
+        x: 1045
+        y: 194
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e534d85b50a02eb60800000000000000
+      internalID: 7773786926431945566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_145
+      rect:
+        serializedVersion: 2
+        x: 249
+        y: 185
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f80cb1368066bd100800000000000000
+      internalID: 133812800146096271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_146
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 191
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 577bc1cfd6c6cb9f0800000000000000
+      internalID: -451366643006916747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_147
+      rect:
+        serializedVersion: 2
+        x: 643
+        y: 189
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87698b0a591121dc0800000000000000
+      internalID: -3669851412009281928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_148
+      rect:
+        serializedVersion: 2
+        x: 668
+        y: 186
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02606818c54bc0620800000000000000
+      internalID: 2741764582564824608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_149
+      rect:
+        serializedVersion: 2
+        x: 1178
+        y: 187
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ee65fbf74d144ae0800000000000000
+      internalID: -1566094575411040536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_150
+      rect:
+        serializedVersion: 2
+        x: 73
+        y: 180
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e773290fa8cedac0800000000000000
+      internalID: -3828401979120191515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_151
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 178
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93b40b0afaffbc2a0800000000000000
+      internalID: -6715993289512694983
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_152
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 179
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acbc0c4e2919f6840800000000000000
+      internalID: 5219550553234787274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_153
+      rect:
+        serializedVersion: 2
+        x: 703
+        y: 181
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5be402a32af4b39f0800000000000000
+      internalID: -487708576461074763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_154
+      rect:
+        serializedVersion: 2
+        x: 862
+        y: 178
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd76c69c503586620800000000000000
+      internalID: 2767553255338436571
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_155
+      rect:
+        serializedVersion: 2
+        x: 151
+        y: 168
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d54a97a3e48d9a50800000000000000
+      internalID: 6529521148061435351
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_156
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 168
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f3d9ecc94205b1500800000000000000
+      internalID: 367975912740658495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_157
+      rect:
+        serializedVersion: 2
+        x: 897
+        y: 171
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 93b4a27d9679a3d40800000000000000
+      internalID: 5564926770406902585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_158
+      rect:
+        serializedVersion: 2
+        x: 1007
+        y: 163
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14ddede025637de50800000000000000
+      internalID: 6833990685622721857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_159
+      rect:
+        serializedVersion: 2
+        x: 1105
+        y: 169
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62ddb35e6c25e8010800000000000000
+      internalID: 1192981965502668070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_160
+      rect:
+        serializedVersion: 2
+        x: 44
+        y: 161
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e2fea7cfdc6bdd10800000000000000
+      internalID: 2151432955383182049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_161
+      rect:
+        serializedVersion: 2
+        x: 262
+        y: 157
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c28553f477c38ce0800000000000000
+      internalID: -1404059353696861495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_162
+      rect:
+        serializedVersion: 2
+        x: 428
+        y: 158
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4edfdf2eb89567b40800000000000000
+      internalID: 5437632057440075236
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_163
+      rect:
+        serializedVersion: 2
+        x: 749
+        y: 153
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1e9305dd4efabf70800000000000000
+      internalID: 9203948398724750874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_164
+      rect:
+        serializedVersion: 2
+        x: 1077
+        y: 157
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8153729e60b54c110800000000000000
+      internalID: 1280248279319655704
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_165
+      rect:
+        serializedVersion: 2
+        x: 1142
+        y: 156
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09cef40bf6ae22740800000000000000
+      internalID: 5125917091321343120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_166
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 139
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4293f4dec00a64510800000000000000
+      internalID: 1533088700547676452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_167
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 148
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc459a2e1245638b0800000000000000
+      internalID: -5172854617475033905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_168
+      rect:
+        serializedVersion: 2
+        x: 913
+        y: 145
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 499f40871e6fdc640800000000000000
+      internalID: 5102005401122306452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_169
+      rect:
+        serializedVersion: 2
+        x: 931
+        y: 142
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1f52bc8aeca70710800000000000000
+      internalID: 1659485111092141850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_170
+      rect:
+        serializedVersion: 2
+        x: 1032
+        y: 139
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdd43ed80a5c2e980800000000000000
+      internalID: -8511023052410892836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_171
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 138
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f9e8f2be98ddb6e00800000000000000
+      internalID: 1039167723465051807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_172
+      rect:
+        serializedVersion: 2
+        x: 387
+        y: 135
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4ca6a88cad692e710800000000000000
+      internalID: 1721103874020502212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_173
+      rect:
+        serializedVersion: 2
+        x: 407
+        y: 136
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d84b5381e0cb16a50800000000000000
+      internalID: 6512693304876184717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_174
+      rect:
+        serializedVersion: 2
+        x: 1112
+        y: 135
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da214ac99314d4310800000000000000
+      internalID: 1390839575624290989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_175
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 123
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19964e0d143a91610800000000000000
+      internalID: 1592483446325012881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_176
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 116
+        width: 18
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 328109e94345af060800000000000000
+      internalID: 6987990356794021923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_177
+      rect:
+        serializedVersion: 2
+        x: 509
+        y: 128
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e22fc540288317300800000000000000
+      internalID: 248041585552192046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_178
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 123
+        width: 12
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cca51a01df9587ae0800000000000000
+      internalID: -1551391128188527924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_179
+      rect:
+        serializedVersion: 2
+        x: 197
+        y: 103
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ff14480007641890800000000000000
+      internalID: -7488247030573948944
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_180
+      rect:
+        serializedVersion: 2
+        x: 264
+        y: 101
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a7a1e40eff542760800000000000000
+      internalID: 7432170829676390311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_181
+      rect:
+        serializedVersion: 2
+        x: 420
+        y: 110
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b07c7aad400f3190800000000000000
+      internalID: -7980659681104465740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_182
+      rect:
+        serializedVersion: 2
+        x: 531
+        y: 101
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8f5c0220a43789710800000000000000
+      internalID: 1700235621032838648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_183
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 90
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2967520c4bab2cc80800000000000000
+      internalID: -8303869477437213038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_184
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 93
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6d7a9f174421b8a10800000000000000
+      internalID: 1912642551928170454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_185
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 94
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 277f91a90f8c24a20800000000000000
+      internalID: 3045217233758975858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_186
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 90
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0298a79520250f90800000000000000
+      internalID: -6988143900965170674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_187
+      rect:
+        serializedVersion: 2
+        x: 645
+        y: 99
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8ae2a51b1a95370a0800000000000000
+      internalID: -6885060854319272280
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_188
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 94
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 309363a4916878d40800000000000000
+      internalID: 5586581305953761539
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_189
+      rect:
+        serializedVersion: 2
+        x: 1133
+        y: 96
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f30b173d748e2e60800000000000000
+      internalID: 7939428866431058933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_190
+      rect:
+        serializedVersion: 2
+        x: 166
+        y: 80
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06ec68a3ddeb4cc70800000000000000
+      internalID: 8990520613517315680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_191
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 83
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 760e151f9b6a03460800000000000000
+      internalID: 7219453520222740583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_192
+      rect:
+        serializedVersion: 2
+        x: 564
+        y: 85
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfcdcbe904b399650800000000000000
+      internalID: 6240083907425656061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_193
+      rect:
+        serializedVersion: 2
+        x: 638
+        y: 87
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9efc59474c436b70800000000000000
+      internalID: 8891033958416711326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_194
+      rect:
+        serializedVersion: 2
+        x: 907
+        y: 85
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 605b68aa1ad48ef80800000000000000
+      internalID: -8077120574942956282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_195
+      rect:
+        serializedVersion: 2
+        x: 953
+        y: 89
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20c8292b06ef0c390800000000000000
+      internalID: -7799954863339435006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_196
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 75
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 764b36440b2e9f4b0800000000000000
+      internalID: -5406040630992063385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_197
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 73
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02ce18f6c32cf3bc0800000000000000
+      internalID: -3801105995652797408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_198
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 75
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9167b370bc7a4d60800000000000000
+      internalID: 7875243995708219803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_199
+      rect:
+        serializedVersion: 2
+        x: 649
+        y: 74
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc7daad166e952d60800000000000000
+      internalID: 7864866485694027723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_200
+      rect:
+        serializedVersion: 2
+        x: 843
+        y: 68
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 330953037c9fc4160800000000000000
+      internalID: 7011253353811644467
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_201
+      rect:
+        serializedVersion: 2
+        x: 976
+        y: 75
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d9f664fb75296280800000000000000
+      internalID: -9049660761912706604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_202
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 61
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 783896610e7186490800000000000000
+      internalID: -7752920507302182009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_203
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 61
+        width: 14
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 049cc37791a8ccd40800000000000000
+      internalID: 5606007478148712768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_204
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 58
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 945e143ceaeaa1400800000000000000
+      internalID: 295740791169606985
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_205
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 60
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 42d6093a894582650800000000000000
+      internalID: 6208305100886142244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_206
+      rect:
+        serializedVersion: 2
+        x: 757
+        y: 59
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20fc84e5d5d5e9da0800000000000000
+      internalID: -5936204603232563454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_207
+      rect:
+        serializedVersion: 2
+        x: 779
+        y: 57
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6437e85801c9622a0800000000000000
+      internalID: -6762546195676105914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_208
+      rect:
+        serializedVersion: 2
+        x: 822
+        y: 64
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c03165a6979228640800000000000000
+      internalID: 5080668931079148300
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_209
+      rect:
+        serializedVersion: 2
+        x: 990
+        y: 55
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a9bd38b00e901cb00800000000000000
+      internalID: 846969062792879002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_210
+      rect:
+        serializedVersion: 2
+        x: 1129
+        y: 56
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39b909494fd2590a0800000000000000
+      internalID: -6875538727623418989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_211
+      rect:
+        serializedVersion: 2
+        x: 248
+        y: 40
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6eddd8623e4ef7b50800000000000000
+      internalID: 6593240043749236198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_212
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 41
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d0a5f61f6144a1c0800000000000000
+      internalID: -4493394582826540846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_213
+      rect:
+        serializedVersion: 2
+        x: 424
+        y: 42
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2adfcd9adbb42cf00800000000000000
+      internalID: 1135553334021520802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_214
+      rect:
+        serializedVersion: 2
+        x: 711
+        y: 48
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ec1ec3fe77f60000800000000000000
+      internalID: 1960974488575200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_215
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 45
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 460dd1e5a5b5b14c0800000000000000
+      internalID: -4315755374220291996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_216
+      rect:
+        serializedVersion: 2
+        x: 850
+        y: 43
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bcd04ac5f2a9d2c40800000000000000
+      internalID: 5489213049042898379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_217
+      rect:
+        serializedVersion: 2
+        x: 1193
+        y: 45
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 398099a0be919a4f0800000000000000
+      internalID: -817093360105224045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_218
+      rect:
+        serializedVersion: 2
+        x: 391
+        y: 32
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 995c8f2601d410d10800000000000000
+      internalID: 2090036434851906969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_219
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 38
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8051d0c3d4ea91290800000000000000
+      internalID: -7919106823011101432
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_220
+      rect:
+        serializedVersion: 2
+        x: 815
+        y: 30
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 222c614104ef18730800000000000000
+      internalID: 3999757495250108962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_221
+      rect:
+        serializedVersion: 2
+        x: 107
+        y: 25
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d3e22b104c1023510800000000000000
+      internalID: 1527285164985691709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_222
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 4
+        width: 25
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0b9f9f65996340560800000000000000
+      internalID: 7279002929954683312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_223
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 20
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21063c0587636e490800000000000000
+      internalID: -7717421021073809390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_224
+      rect:
+        serializedVersion: 2
+        x: 996
+        y: 24
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a306826bd9e2f7210800000000000000
+      internalID: 1332835269625798714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_225
+      rect:
+        serializedVersion: 2
+        x: 1065
+        y: 19
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4d5f70d7ce99707f0800000000000000
+      internalID: -646378780515371564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_226
+      rect:
+        serializedVersion: 2
+        x: 1118
+        y: 16
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0590f33b00c2452f0800000000000000
+      internalID: -985114036968421040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_227
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 13
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 077f21be1600bea60800000000000000
+      internalID: 7704252008103081840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_228
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 6
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a081d6f2af861320800000000000000
+      internalID: 2528366170903511202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_229
+      rect:
+        serializedVersion: 2
+        x: 403
+        y: 12
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 297d3bd2a1f523870800000000000000
+      internalID: 8661089599427434386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_230
+      rect:
+        serializedVersion: 2
+        x: 617
+        y: 11
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e975609bda36dccc0800000000000000
+      internalID: -3689182921961875554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_231
+      rect:
+        serializedVersion: 2
+        x: 927
+        y: 11
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c0263b5f596fc9c0800000000000000
+      internalID: -3904786493633847097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_232
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 12
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 689917471d22b4f90800000000000000
+      internalID: -6968437715428599418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_233
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 0
+        width: 11
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 14926c5e4adec11c0800000000000000
+      internalID: -4531485832556172991
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_234
+      rect:
+        serializedVersion: 2
+        x: 1011
+        y: 0
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 86a8b87fe6b45b300800000000000000
+      internalID: 267202692870015592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_235
+      rect:
+        serializedVersion: 2
+        x: 1095
+        y: 0
+        width: 11
+        height: 5
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 319d4f4f2492c51b0800000000000000
+      internalID: -5666608863584659181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: motes_236
+      rect:
+        serializedVersion: 2
+        x: 1176
+        y: 0
+        width: 15
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bf28403924dcec850800000000000000
+      internalID: 6399277806358135547
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
