@@ -9,7 +9,7 @@
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=960 height=600 tabindex="-1"></canvas>
+      <canvas id="unity-canvas" width=1080 height=1920 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -103,9 +103,20 @@
 
 
       } else {
-        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
-        canvas.style.width = "960px";
-        canvas.style.height = "600px";
+        // Portrait game on a landscape screen: size the canvas from the WINDOW HEIGHT and derive the
+        // width from the 9:16 aspect, so it fills the browser vertically without ever being cropped or
+        // stretched. The stock template hard-codes 960x600 landscape, which showed this game letterboxed
+        // into a small horizontal box.
+        var ASPECT = 1080 / 1920;
+        function fitCanvas() {
+          var h = Math.max(240, window.innerHeight - 8);
+          var w = h * ASPECT;
+          if (w > window.innerWidth) { w = window.innerWidth; h = w / ASPECT; }
+          canvas.style.width = w + "px";
+          canvas.style.height = h + "px";
+        }
+        fitCanvas();
+        window.addEventListener("resize", fitCanvas);
       }
 
       document.querySelector("#unity-loading-bar").style.display = "block";
