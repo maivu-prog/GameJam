@@ -17,9 +17,11 @@
         </div>
       </div>
       <div id="unity-warning"> </div>
+      <!-- Fullscreen is lifted out of the footer, which is hidden: a child cannot show through a
+           parent that is display:none, and the button is worth keeping for a portrait game. -->
+      <div id="unity-fullscreen-button"></div>
       <div id="unity-footer">
         <div id="unity-logo-title-footer"></div>
-        <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">GameJam</div>
       </div>
     </div>
@@ -114,9 +116,12 @@
         // canvas and pushes it past the bottom of the viewport, which cut the game off exactly as much
         // as the bar is tall.
         var ASPECT = 1080 / 1920;
+        // The footer is hidden in style.css, so the canvas gets the whole window height. Measured
+        // rather than assumed all the same: if the bar is ever put back, offsetHeight returns to a
+        // real number and the fit still lands inside the viewport.
         var footer = document.querySelector("#unity-footer");
         function fitCanvas() {
-          var chrome = (footer ? footer.offsetHeight : 0) + 4;
+          var chrome = (footer && footer.offsetHeight) || 0;
           var h = Math.max(240, window.innerHeight - chrome);
           var w = h * ASPECT;
           if (w > window.innerWidth) { w = window.innerWidth; h = w / ASPECT; }
