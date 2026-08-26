@@ -27,3 +27,14 @@ body { padding: 0; margin: 0 }
   border-radius: 6px; float: none; margin: 0;
 }
 #unity-fullscreen-button:hover { opacity: 1 }
+
+/* portrait: pin to the viewport */
+/* The stock template positions the container with absolute + top:50%, which centres it against the
+   BODY height rather than the viewport. Once the canvas is as tall as the window, that leaves the
+   page a few pixels taller than the screen: a scrollbar appears and the bottom of the game sits
+   below the fold. Pinning to the viewport and refusing to scroll removes both. */
+html, body { height: 100%; overflow: hidden; background: #231F20 }
+#unity-container.unity-desktop {
+  position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%);
+}
+#unity-canvas { display: block }
