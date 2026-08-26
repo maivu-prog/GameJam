@@ -107,9 +107,17 @@
         // width from the 9:16 aspect, so it fills the browser vertically without ever being cropped or
         // stretched. The stock template hard-codes 960x600 landscape, which showed this game letterboxed
         // into a small horizontal box.
+        // Portrait game on a landscape screen. Height comes from the window, width follows the 9:16
+        // aspect, so the game fills the screen vertically and is never cropped or stretched.
+        //
+        // The footer has to be measured and subtracted, not ignored: Unity's own bar sits BELOW the
+        // canvas and pushes it past the bottom of the viewport, which cut the game off exactly as much
+        // as the bar is tall.
         var ASPECT = 1080 / 1920;
+        var footer = document.querySelector("#unity-footer");
         function fitCanvas() {
-          var h = Math.max(240, window.innerHeight - 8);
+          var chrome = (footer ? footer.offsetHeight : 0) + 4;
+          var h = Math.max(240, window.innerHeight - chrome);
           var w = h * ASPECT;
           if (w > window.innerWidth) { w = window.innerWidth; h = w / ASPECT; }
           canvas.style.width = w + "px";
@@ -117,6 +125,8 @@
         }
         fitCanvas();
         window.addEventListener("resize", fitCanvas);
+        // The footer's own images load after this runs, so re-fit once everything has settled.
+        window.addEventListener("load", fitCanvas);
       }
 
       document.querySelector("#unity-loading-bar").style.display = "block";
