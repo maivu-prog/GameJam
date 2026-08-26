@@ -1,0 +1,29 @@
+# Publish the Unity WebGL build to GitLab Pages.
+#
+# There is no Unity in this pipeline on purpose: a Unity runner needs a licence and a container image
+# with the WebGL module, and a game-jam build is faster made locally and committed. So this job only
+# moves an already-built folder into place.
+#
+# Build it first with:  Unity ▸ Rusty Fishing ▸ Build Web (WebGL)
+# which writes Builds/Web/ with index.html at its root. Commit that folder, push, and the site appears
+# at https://<project>.pages.bagelgames.com/
+#
+# Decompression Fallback is forced on by that menu item, which matters here: GitLab Pages will not
+# announce Content-Encoding for the .br files Unity emits, so the loader has to inflate them itself.
+# Without it the page loads and then dies with "Failed to download file Build/*.data.br".
+
+pages:
+  stage: deploy
+  image: alpine:latest
+  script:
+    - test -f Builds/Web/index.html || (echo "No build found. Run Rusty Fishing > Build Web (WebGL) and commit Builds/Web/" && exit 1)
+    - rm -rf public
+    - cp -r Builds/Web public
+    # Unity writes .br files that must be served byte-for-byte; no post-processing here.
+    - ls -la public public/Build
+  artifacts:
+    paths:
+      - public
+  rules:
+    # Only from the default branch, so a feature branch never overwrites the live link.
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH

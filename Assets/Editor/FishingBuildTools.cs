@@ -35,6 +35,37 @@ namespace RustyFishing.Editor
             Debug.Log($"Rusty Fishing APK built: {report.summary.totalSize} bytes → {options.locationPathName}");
         }
 
+        /// <summary>
+        /// Build the web player. Runs from the menu, or headless:
+        ///   Unity.exe -batchmode -quit -projectPath . -executeMethod RustyFishing.Editor.FishingBuildTools.BuildWeb
+        ///
+        /// Decompression Fallback is forced on. Without it the build expects the SERVER to announce
+        /// Content-Encoding for the .br files, which itch.io, GitHub Pages and most static hosts will not
+        /// do -- and the page just fails to load with no useful message.
+        /// </summary>
+        [MenuItem("Rusty Fishing/Build Web (WebGL)")]
+        public static void BuildWeb()
+        {
+            const string outDir = "Builds/Web";
+            Directory.CreateDirectory(outDir);
+
+            PlayerSettings.WebGL.decompressionFallback = true;
+            PlayerSettings.WebGL.compressionFormat = WebGLCompressionFormat.Brotli;
+            PlayerSettings.WebGL.linkerTarget = WebGLLinkerTarget.Wasm;
+
+            var options = new BuildPlayerOptions
+            {
+                scenes = new[] { "Assets/Scenes/SampleScene.unity" },
+                locationPathName = outDir,
+                target = BuildTarget.WebGL,
+                options = BuildOptions.None,   // release: a development web build is far larger and slower
+            };
+            var report = BuildPipeline.BuildPlayer(options);
+            if (report.summary.result != BuildResult.Succeeded)
+                throw new System.Exception($"Web build failed: {report.summary.result}");
+            Debug.Log($"Rusty Fishing web build complete: {report.summary.totalSize / 1048576} MB -> {outDir}");
+        }
+
         [MenuItem("Rusty Fishing/Build Windows Development")]
         public static void BuildWindows()
         {

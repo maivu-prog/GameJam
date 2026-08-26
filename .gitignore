@@ -109,3 +109,9 @@ InitTestScene*.unity*
 # Unity crash-recovery scenes: a snapshot of the editor state, not source.
 /[Aa]ssets/_Recovery/
 /[Aa]ssets/_Recovery.meta
+
+# The web build IS the deployable artifact for GitLab Pages, so it is committed on purpose while
+# every other build output stays ignored. Keep it small -- see the texture compression note in
+# Assets/Editor/FishingAssetImporter.cs before wondering why data.br is 70MB.
+!/[Bb]uilds/Web/
+!/[Bb]uilds/Web/**
