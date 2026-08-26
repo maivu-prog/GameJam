@@ -9,7 +9,7 @@
   </head>
   <body>
     <div id="unity-container" class="unity-desktop">
-      <canvas id="unity-canvas" width=1080 height=1920 tabindex="-1"></canvas>
+      <canvas id="unity-canvas" width=1080 height=2340 tabindex="-1"></canvas>
       <div id="unity-loading-bar">
         <div id="unity-logo"></div>
         <div id="unity-progress-bar-empty">
@@ -115,10 +115,15 @@
         // The footer has to be measured and subtracted, not ignored: Unity's own bar sits BELOW the
         // canvas and pushes it past the bottom of the viewport, which cut the game off exactly as much
         // as the bar is tall.
-        // Portrait game, landscape screen. Fit ENTIRELY inside the window at the true 9:16 aspect:
-        // take whichever of height or width runs out first, and let the game be smaller rather than
-        // cropped or stretched. A small margin keeps it off the very edge of the viewport.
-        var ASPECT = 1080 / 1920;
+        // Portrait game, landscape screen. Fit ENTIRELY inside the window at the game's aspect: take
+        // whichever of height or width runs out first, and let it be smaller rather than cropped.
+        //
+        // 1080x2340, not the 1080x1920 reference resolution. The CanvasScaler matches WIDTH only
+        // (m_MatchWidthOrHeight: 0), so the canvas is always 1080 units across and its HEIGHT follows
+        // the screen: a 9:16 window shows 1920 units, a modern 19.5:9 phone shows 2340. The layout was
+        // authored against a phone preview, so framing it at 1920 here clipped the title art that a
+        // real handset has room for.
+        var ASPECT = 1080 / 2340;
         var MARGIN = 16;
         var footer = document.querySelector("#unity-footer");
         function fitCanvas() {
