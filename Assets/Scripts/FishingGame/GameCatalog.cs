@@ -70,14 +70,29 @@ namespace RustyFishing
         public static float SpeedNeedleStart=-40, SpeedNeedleSweep=240;
         public static float DisplaySpeedKn=8f;       // cosmetic base speed shown on the ENGINE upgrade card (kn at level 0)
         public static float SeaLength=120;           // recomputed from DockGap in LayoutDocks()
+        // Port BASE line (waterline) in Y. Ports use a bottom-centre pivot (0.5, 0), so anchoredPosition.y
+        // is their bottom edge and every port — whatever its height — rests its base on this line. Tune via
+        // the "portY" slider to slide all ports up/down together.
+        public static float PortY=247.289f;
         public static float DockGap=78f;             // units between consecutive docks — tuned for a 10-port map
         // Half-width of a harbour, in sea-units. Drives THREE things at once: when the DOCK button appears,
         // how wide the night safe zone is, and how much water around a port stays free of fish + obstacles.
         public static float PortRadius=12f;
         public static float BoatAccel=2.3f, BoatDecel=3.0f;
         public static float HookSink=3.5f, HookSinkMax=5, HookUpForce=11, HookUpDrag=.5f;
-        public static float HookRiseMax=5, HookHorizontal=5, HookRetract=20;
+        public static float HookRiseMax=5, HookHorizontal=5, HookRetract=30;
         public static float HookDamage=10, MaxDepth=50;
+        // Body-based catch: a fish is bitten when the hook shank comes within (its body radius +
+        // HookCatchRadius) of its centre, where body radius = FishWidthPx * FishHitFraction. This makes the
+        // visible hook/barb touching the fish BODY register damage, instead of only a hit dead-on its centre
+        // (the old point-distance test needed the shank to reach the middle of a ~250px fish, so it felt like
+        // only the line-end connected). HookCatchRadius is just a small flat reach beyond the body for feel.
+        public static float HookCatchRadius=10, FishHitFraction=.4f;
+        // The hook must be MOVING at least this fast (px/s) to deal damage. Kills the "sink to the floor and
+        // hold" exploit: a parked hook is harmless, so you must actively rub it across a fish to catch.
+        public static float HookBiteMinSpeed=55f;
+        // Floor under a species' size so the tiniest fish don't render/hit too small. 2x the smallest (sardine 0.48).
+        public static float MinFishSize=.96f;
 
         /// <summary>
         /// Minimum gap between two fish when they spawn, as a multiple of their combined half-widths.
@@ -91,6 +106,9 @@ namespace RustyFishing
 
         /// <summary>Temporary: log every catch and every storage repaint. Turn off when the count is trusted.</summary>
         public static bool debugStorage=false;
+        // Verbose fishing log: prints, ~5x/sec while a fish is in reach, the hook speed / gate / depth-floor
+        // state and the fish HP, so a phantom catch can be traced. Turn off once the bug is understood.
+        public static bool debugFishing=false;
         public static float PixelsPerUnit=40;        // hook physics run in units then scale to px (demo uses 40)
         public static float HookLineSeconds=12, HookMaxDepthUnits=46;   // reach cap; the band gate is usually stricter
         public static float WorldScrollPpu=42;       // px per sea-unit for scrolling ports/obstacles past the boat
@@ -415,6 +433,7 @@ namespace RustyFishing
         }
         public static FishDef GetFish(string id) => Fish.Find(f=>f.id==id);
         public static PortDef AtPort(float x) => Ports.Find(p=>Mathf.Abs(p.x-x)<=p.radius);
+        public static PortDef PortById(string id) => Ports.Find(p=>p.id==id) ?? Ports[0];
 
         // Harbour water is a truce: nothing bites the hull, the hook catches nothing, and the hunters will
         // not cross in. Deliberately the SAME radius that raises the DOCK button, so the safe line is the

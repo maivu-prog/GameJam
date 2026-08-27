@@ -13,6 +13,15 @@ namespace RustyFishing
         // Which hull you are sailing: 0=A, 1=B, 2=C, 3=final. Gates the depth bands and caps how far the
         // four branches may be levelled, and every New Ship adds a flat bump on top of them.
         public int shipTier=0;
+        // Which port the player was last at, so Continue resumes there instead of Home Harbor.
+        public string lastPortId="home";
+        // Seconds into the current day/night cycle, so Continue resumes the same time of day, not dawn.
+        public float phaseTime=0f;
+        // Boat position along the sea, so Continue resumes exactly where you were, not the last port.
+        public float boatX=6f;
+        // JSON snapshot of this whole save as it was at the current day's dawn. Sinking restores it, so a
+        // lost run costs the day rather than your progress. Persisted so it survives Continue.
+        public string dayStart="";
         // Story missions ("The Bell Below"). One live mission at a time; missionProgress has one tally per
         // objective of that mission, so a two-line mission carries two counters. missionId "" on a fresh
         // save means "not handed out yet" — the first harbour visit gives it.
@@ -37,7 +46,7 @@ namespace RustyFishing
         public SaveData Data { get; private set; }
         string PathName => Path.Combine(Application.persistentDataPath,FileName);
         public PlayerSave(){ Load(); }
-        public void Load(){ bool fresh=!File.Exists(PathName); try{ Data=fresh?new SaveData():JsonUtility.FromJson<SaveData>(File.ReadAllText(PathName)); }catch{Data=new SaveData();fresh=true;} Data??=new SaveData(); Data.cargo??=new(); Data.missionProgress??=new(); Data.missionsDone??=new(); Data.hintsSeen??=new(); if(fresh)Data.hullHp=GameCatalog.startHullHp; }
+        public void Load(){ bool fresh=!File.Exists(PathName); try{ Data=fresh?new SaveData():JsonUtility.FromJson<SaveData>(File.ReadAllText(PathName)); }catch{Data=new SaveData();fresh=true;} Data??=new SaveData(); Data.cargo??=new(); Data.missionProgress??=new(); Data.missionsDone??=new(); Data.hintsSeen??=new(); if(string.IsNullOrEmpty(Data.lastPortId))Data.lastPortId="home"; if(fresh)Data.hullHp=GameCatalog.startHullHp; }
         public void Store(){ try{ File.WriteAllText(PathName,JsonUtility.ToJson(Data,true)); }catch(Exception e){Debug.LogWarning(e.Message);} }
         // Wipe progression back to a fresh save (deletes the file, then re-creates a default one).
         public void Reset(){ try{ if(File.Exists(PathName))File.Delete(PathName); }catch(Exception e){Debug.LogWarning(e.Message);} Data=new SaveData(); Data.cargo=new(); Data.hintsSeen=new(); Data.hullHp=GameCatalog.startHullHp; Store(); }
@@ -104,6 +113,25 @@ namespace RustyFishing
         public int SellAt(int index,PortDef port,float hour){if(index<0||index>=Data.cargo.Count)return 0;int p=PriceOf(Data.cargo[index],port,hour);if(p<=0)return 0;Data.cargo.RemoveAt(index);Data.coins+=p;Store();return p;}
         public int Toss(float hour){int n=Data.cargo.RemoveAll(c=>Freshness(c,hour)=="Rotten");Store();return n;}
         public bool Repair(){int cost=RepairCost;if(cost==0)return true;if(Data.coins<cost)return false;Data.coins-=cost;Data.hullHp=MaxHp;Store();return true;}
+
+        /// <summary>Snapshot the whole save as "the start of today" (call at each dawn).</summary>
+        public void CaptureDayStart(){
+            Data.dayStart="";                       // blank it first so the snapshot doesn't nest a prior one
+            Data.dayStart=JsonUtility.ToJson(Data);
+            Store();
+        }
+        /// <summary>Roll the save back to this day's dawn snapshot. Returns false if there is none.</summary>
+        public bool RestoreDayStart(){
+            if(string.IsNullOrEmpty(Data.dayStart))return false;
+            string snap=Data.dayStart;
+            var restored=JsonUtility.FromJson<SaveData>(snap);
+            if(restored==null)return false;
+            restored.dayStart=snap;                 // keep it armed so sinking again the same day rewinds again
+            restored.cargo??=new();restored.missionProgress??=new();restored.missionsDone??=new();restored.hintsSeen??=new();restored.fishStock??=new();
+            Data=restored;
+            Store();
+            return true;
+        }
         /// <summary>Current level of an upgrade branch by id ("hook"/"hold"/"engine"/"hull").</summary>
         public int LevelOf(string id)=>id=="hook"?Data.hookLevel:id=="hold"?Data.holdLevel:id=="engine"?Data.engineLevel:Data.hullLevel;
         /// <summary>Branch levels are capped by the ship tier: 4 on hull A, 8 on B, 12 on C.</summary>
@@ -116,8 +144,12 @@ namespace RustyFishing
             if(!GameCatalog.UpgradeCosts.TryGetValue(id,out var costs)||level>=costs.Length)return false;
             if(Data.coins<costs[level])return false;
             Data.coins-=costs[level];
-            if(id=="hook")Data.hookLevel++;else if(id=="hold")Data.holdLevel++;
-            else if(id=="engine")Data.engineLevel++;else Data.hullLevel++;
+            if(id=="hook")Data.hookLevel++;
+            else if(id=="hold")Data.holdLevel++;
+            else if(id=="engine")Data.engineLevel++;
+            // Hull: bump current HP by the max just gained so upgrading actually raises your health
+            // (and a full ship stays full) instead of only widening the max and shrinking the bar.
+            else{int beforeMax=MaxHp;Data.hullLevel++;Data.hullHp+=Mathf.Max(0,MaxHp-beforeMax);}
             Store();return true;}
 
         /// <summary>Every branch maxed for this tier, and there is still a hull left to build.</summary>

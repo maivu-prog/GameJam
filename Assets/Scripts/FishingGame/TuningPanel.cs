@@ -51,6 +51,11 @@ namespace RustyFishing
             Add("upDrag", .1f, 1, () => GameCatalog.HookUpDrag, v => GameCatalog.HookUpDrag = v, "Độ cản khi kéo lên (cao = chậm hơn)");
             Add("horizontal", 1, 14, () => GameCatalog.HookHorizontal, v => GameCatalog.HookHorizontal = v, "Tốc độ di chuyển ngang của lưỡi câu");
             Add("retract", 2, 24, () => GameCatalog.HookRetract, v => GameCatalog.HookRetract = v, "Tốc độ thu lưỡi câu về thuyền");
+            Add("fishHit", .15f, .6f, () => GameCatalog.FishHitFraction, v => GameCatalog.FishHitFraction = v, "Vùng ăn damage theo thân cá (tỉ lệ bề ngang). Cao = chạm mép cá đã dính; thấp = phải trúng gần giữa");
+            Add("catchReach", 0, 40, () => GameCatalog.HookCatchRadius, v => GameCatalog.HookCatchRadius = v, "Tầm với thêm ngoài thân cá (px). 0 = phải chạm đúng thân");
+            Add("hookDamage", 2, 40, () => GameCatalog.HookDamage, v => GameCatalog.HookDamage = v, "Sát thương lưỡi câu mỗi giây (thấp = cá lâu chết, cần cọ lâu hơn)");
+            Add("biteMinSpeed", 0, 200, () => GameCatalog.HookBiteMinSpeed, v => GameCatalog.HookBiteMinSpeed = v, "Hook phải di chuyển nhanh hơn mức này (px/s) mới gây damage. 0 = tắt (hook đứng yên cũng ăn); cao = phải cọ mạnh");
+            Add("minFishSize", .3f, 1.6f, () => GameCatalog.MinFishSize, v => GameCatalog.MinFishSize = v, "Cỡ nhỏ nhất của cá (species nhỏ hơn sẽ được kéo lên mức này)");
             Add("lineSeconds", 3, 30, () => GameCatalog.HookLineSeconds, v => GameCatalog.HookLineSeconds = v, "Thời gian tối đa mỗi lần thả câu (giây)");
             Add("maxDepthU", 10, 40, () => GameCatalog.HookMaxDepthUnits, v => GameCatalog.HookMaxDepthUnits = v, "Độ sâu tối đa lưỡi câu xuống được");
             Add("worldScroll", 16, 64, () => GameCatalog.WorldScrollPpu, v => GameCatalog.WorldScrollPpu = v, "Tốc độ cuộn cảnh biển theo thuyền (px/đơn vị)");
@@ -64,6 +69,7 @@ namespace RustyFishing
             Add("dockGap", 18, 70, () => GameCatalog.DockGap, v => { GameCatalog.DockGap = v; GameCatalog.LayoutDocks(); }, "Khoảng cách nhỏ nhất giữa các cảng");
             Add("dockGapVar", 1, 3.5f, () => GameCatalog.DockGapVarMax, v => { GameCatalog.DockGapVarMax = v; GameCatalog.ReseedDockGaps(); GameCatalog.LayoutDocks(); }, "Độ biến động khoảng cách cảng (1 = đều nhau)");
             Add("portSparse", 0, 40, () => GameCatalog.FishPortSparseRadius, v => GameCatalog.FishPortSparseRadius = v, "Bán kính quanh cảng ít cá (dụ đi xa)");
+            Add("portY", -80, 420, () => GameCatalog.PortY, v => GameCatalog.PortY = v, "Đường nước của cảng — kéo để trượt TẤT CẢ cảng lên/xuống (căn theo đáy nên cảng cao/thấp đều nằm một hàng)");
             Add("lineWidth", 1, 60, () => GameCatalog.LineWidthPx, v => GameCatalog.LineWidthPx = v, "Độ dày của dây câu");
             Add("lineSag", 0, 180, () => GameCatalog.LineSagPx, v => GameCatalog.LineSagPx = v, "Fishing-line curve sag");
             Add("hookScale", .5f, 5f, () => GameCatalog.HookScale, v => GameCatalog.HookScale = v, "Kích thước hiển thị của lưỡi câu");

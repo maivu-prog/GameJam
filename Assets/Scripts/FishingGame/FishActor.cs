@@ -45,6 +45,9 @@ namespace RustyFishing
         }
         /// <summary>True once this fish has started leaving; it can no longer be hit or counted.</summary>
         public bool Leaving=>dismissing;
+        // Is the sprite actually drawn right now? Off-screen/parked fish hide their image and stop updating
+        // position, so the hook must not be able to catch them (they sit invisibly at their spawn x=0).
+        public bool Visible=>image!=null&&image.enabled;
 
         void Update(){
             if(dismissing){

@@ -9,7 +9,7 @@ namespace RustyFishing
     // Harbor screen: market list, sell/toss/repair/upgrade, set sail / dock, and the basket-full toss modal.
     public sealed partial class FishingGameController
     {
-        void OpenHarbor(PortDef port){mode=Mode.Harbor;currentPort=port;boatX=port.x;boatSpeed=0;shakeTime=0;if(harbor!=null)harbor.gameObject.SetActive(true);if(sea!=null)sea.gameObject.SetActive(false);UpdateUpgradeAvailability();UpdateSleepButton();RefreshHarbor();MissionOnDock(port);}
+        void OpenHarbor(PortDef port){mode=Mode.Harbor;currentPort=port;boatX=port.x;boatSpeed=0;save.Data.lastPortId=port.id;save.Data.boatX=boatX;save.Store();shakeTime=0;if(harbor!=null)harbor.gameObject.SetActive(true);if(sea!=null)sea.gameObject.SetActive(false);UpdateUpgradeAvailability();UpdateSleepButton();RefreshHarbor();MissionOnDock(port);}
         // Ports without upgrades (everywhere except Home Harbor) shouldn't show the UPGRADE button or its panel.
         void UpdateUpgradeAvailability(){
             bool has=currentPort!=null&&currentPort.upgrades;
@@ -156,11 +156,12 @@ namespace RustyFishing
         // Skip the rest of the night. Called from the sea-screen REST button and the harbour SLEEP button.
         void Rest(){
             if(!IsNight)return;
-            phaseTime=0;worldHour=6;save.Data.day++;save.Store();
+            phaseTime=0;worldHour=6;save.Data.phaseTime=0;save.Data.day++;save.Store();
             FishStock.Restore(save.Data,FishStock.SleepRegen);   // a night at anchor is what the sea needed
             wasNight=false;SwapFishField();        // dawn now, so the hunters leave and the shoals return
             HideKrakenVisualsImmediate();
             OpenHarbor(GameCatalog.AtPort(boatX)??GameCatalog.Ports[0]);
+            save.CaptureDayStart();   // new dawn: this harbour state is where a sinking today rewinds to
             UpdateSleepButton();
         }
         // Wipe ALL saved progress (coins, day, upgrades, cargo, hull) back to a fresh start and return
@@ -321,9 +322,31 @@ namespace RustyFishing
             root.gameObject.AddComponent<Image>().color=new Color(0,0,0,.62f);
             var card=RuntimeUI.Image(root,"Card","UI/Harbor/market-card",Vector2.zero,new Vector2(840,700));card.preserveAspect=false;
             RuntimeUI.Text(card.transform,"SETTINGS",new Vector2(0,220),new Vector2(640,90),52);
-            RuntimeUI.Text(card.transform,"Coming soon.",new Vector2(0,30),new Vector2(640,80),34);
-            RuntimeUI.Button(card.transform,"UI/Harbor/action-button","CLOSE",new Vector2(0,-220),new Vector2(320,100),CloseModal,30);
+            RuntimeUI.Button(card.transform,"UI/Harbor/action-button","MAIN MENU",new Vector2(0,60),new Vector2(360,100),ShowTitle,30);
+            RuntimeUI.Button(card.transform,"UI/Harbor/action-button","QUIT GAME",new Vector2(0,-60),new Vector2(360,100),QuitGame,30);
+            RuntimeUI.Button(card.transform,"UI/Harbor/action-button","CLOSE",new Vector2(0,-200),new Vector2(320,100),CloseModal,30);
             root.SetAsLastSibling();
+        }
+
+        /// <summary>Save and return to the title screen. Continue from there resumes this same save.</summary>
+        void ShowTitle(){
+            if(mode==Mode.Fishing)EndFishing();   // don't leave a live line/hook behind the menu
+            save?.Store();
+            CloseModal();
+            if(titleScreen==null){ShowWorld(true);return;}   // no menu authored — just close the modal
+            titleScreen.gameObject.SetActive(true);
+            ShowWorld(false);
+            RefreshTitle();
+        }
+
+        /// <summary>Save and exit. In the editor this just stops Play; a real build quits (WebGL unloads).</summary>
+        void QuitGame(){
+            save?.Store();
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying=false;
+#else
+            Application.Quit();
+#endif
         }
     }
 }

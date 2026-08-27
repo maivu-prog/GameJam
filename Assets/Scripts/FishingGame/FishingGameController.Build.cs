@@ -129,7 +129,6 @@ namespace RustyFishing
             // scene still govern every harbour that gets added here.
             var template=portArt.Count>0?portArt[portArt.Count-1]:null;
             Vector2 size=template!=null?template.rectTransform.sizeDelta:new Vector2(700,350);
-            float y=template!=null?template.rectTransform.anchoredPosition.y:430f;
             while(portArt.Count>GameCatalog.Ports.Count){
                 int last=portArt.Count-1;var im=portArt[last];portArt.RemoveAt(last);
                 if(im!=null)Destroy(im.gameObject);
@@ -138,7 +137,8 @@ namespace RustyFishing
                 if(portArt[i]!=null)portArt[i].gameObject.name="Port-"+GameCatalog.Ports[i].id;   // names went stale
             for(int i=portArt.Count;i<GameCatalog.Ports.Count;i++){
                 var def=GameCatalog.Ports[i];
-                var img=RuntimeUI.Image(world,"Port-"+def.id,"progression/"+def.art,new Vector2(0,y),size);
+                var img=RuntimeUI.Image(world,"Port-"+def.id,"progression/"+def.art,new Vector2(0,GameCatalog.PortY),size);
+                img.rectTransform.pivot=new Vector2(0.5f,0f);
                 img.raycastTarget=false;
                 if(boat!=null)img.transform.SetSiblingIndex(boat.transform.GetSiblingIndex());   // behind the hull
                 portArt.Add(img);
@@ -256,7 +256,7 @@ namespace RustyFishing
             }
 RuntimeUI.Button(harbor,"UI/Harbor/primary-button","SET SAIL",new Vector2(0,-790),new Vector2(780,150),SetSail,50);}
         void BuildSea(){var bg=RuntimeUI.Image(sea,"Sea","fishing-world-backdrop",Vector2.zero,new Vector2(1080,1920));bg.preserveAspect=false;world=RuntimeUI.Rect(sea,"World",Vector2.zero,new Vector2(1080,1920));
-            for(int i=0;i<GameCatalog.Ports.Count;i++){var p=GameCatalog.Ports[i];portArt.Add(RuntimeUI.Image(world,"Port-"+p.id,"progression/"+p.art,new Vector2(0,430),new Vector2(700,350)));}
+            for(int i=0;i<GameCatalog.Ports.Count;i++){var p=GameCatalog.Ports[i];var im=RuntimeUI.Image(world,"Port-"+p.id,"progression/"+p.art,new Vector2(0,GameCatalog.PortY),new Vector2(700,350));im.rectTransform.pivot=new Vector2(0.5f,0f);portArt.Add(im);}
             boat=RuntimeUI.Image(world,"Boat","progression/boat-0",new Vector2(0,340),new Vector2(430,260));fishLayer=RuntimeUI.Rect(world,"FishLayer",new Vector2(0,-30),new Vector2(1080,1150));
             RuntimeUI.Image(sea,"ClockPanel","UI/Gameplay/clock-panel",new Vector2(-405,690),new Vector2(250,380));RuntimeUI.Image(sea,"ClockFace","UI/Harbor/clock-face",new Vector2(-405,755),new Vector2(155,155));clockNeedle=Needle(sea,"ClockNeedle",new Vector2(-405,755),new Vector2(6,58),new Color(.34f,.15f,.1f));
             RuntimeUI.Image(sea,"Counter","UI/Gameplay/counter-panel",new Vector2(360,760),new Vector2(300,150));seaCargo=RuntimeUI.Text(sea,"0/20",new Vector2(385,760),new Vector2(180,90),38);RuntimeUI.Image(sea,"CoinCounter","UI/Gameplay/counter-panel",new Vector2(360,610),new Vector2(300,150));seaCoins=RuntimeUI.Text(sea,"0",new Vector2(385,610),new Vector2(180,90),38);

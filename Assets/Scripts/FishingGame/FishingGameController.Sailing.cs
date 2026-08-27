@@ -9,10 +9,11 @@ namespace RustyFishing
         // The sea monster used to appear in open water at night; it is switched off (see HideMonster).
         void TickClock(float dt){
             phaseTime+=dt;
+            save.Data.phaseTime=phaseTime;   // keep the save in sync so any Store (and Quit) persists the time of day
             // Dusk and dawn each swap the entire fish field once, on the frame the clock crosses over.
             if(IsNight!=wasNight){wasNight=IsNight;SwapFishField();}
-            if(phaseTime<GameCatalog.DaySeconds){worldHour=6+phaseTime/GameCatalog.DaySeconds*12;nightShade.gameObject.SetActive(false);}else{mode=mode==Mode.Fishing?mode:Mode.Night;worldHour=18+(phaseTime-GameCatalog.DaySeconds)/GameCatalog.NightSeconds*12;nightShade.gameObject.SetActive(true);if(phaseTime>=GameCatalog.DaySeconds+GameCatalog.NightSeconds){phaseTime=0;worldHour=6;save.Data.day++;save.Store();ReplenishFishField(GameCatalog.FishFieldMax,true);}}}
-        void TickBoat(float dt){float dir=(mode==Mode.Fishing||dockingPort!=null)?0:(left.Held?-1:0)+(right.Held?1:0);float target=dir*GameCatalog.MaxSpeed*save.SpeedMultiplier;boatSpeed=Mathf.MoveTowards(boatSpeed,target,(dir!=0?GameCatalog.BoatAccel:GameCatalog.BoatDecel)*dt);boatX=Mathf.Clamp(boatX+boatSpeed*dt,0,GameCatalog.SeaLength);boat.rectTransform.localScale=new Vector3(boatSpeed<-.01f?-1:1,1,1);boat.rectTransform.anchoredPosition=new Vector2(0,340+Mathf.Sin(Time.time*3)*8);
+            if(phaseTime<GameCatalog.DaySeconds){worldHour=6+phaseTime/GameCatalog.DaySeconds*12;nightShade.gameObject.SetActive(false);}else{mode=mode==Mode.Fishing?mode:Mode.Night;worldHour=18+(phaseTime-GameCatalog.DaySeconds)/GameCatalog.NightSeconds*12;nightShade.gameObject.SetActive(true);if(phaseTime>=GameCatalog.DaySeconds+GameCatalog.NightSeconds){phaseTime=0;worldHour=6;save.Data.phaseTime=0;save.Data.day++;save.Store();save.CaptureDayStart();ReplenishFishField(GameCatalog.FishFieldMax,true);}}}
+        void TickBoat(float dt){float dir=(mode==Mode.Fishing||dockingPort!=null)?0:(left.Held?-1:0)+(right.Held?1:0);float target=dir*GameCatalog.MaxSpeed*save.SpeedMultiplier;boatSpeed=Mathf.MoveTowards(boatSpeed,target,(dir!=0?GameCatalog.BoatAccel:GameCatalog.BoatDecel)*dt);boatX=Mathf.Clamp(boatX+boatSpeed*dt,0,GameCatalog.SeaLength);save.Data.boatX=boatX;boat.rectTransform.localScale=new Vector3(boatSpeed<-.01f?-1:1,1,1);boat.rectTransform.anchoredPosition=new Vector2(0,340+Mathf.Sin(Time.time*3)*8);
             bool atPort=GameCatalog.AtPort(boatX)!=null;
             // Utility button above the joystick: shows DOCK at a port (and never while fishing);
             // falls back to the old DOCK button if the utility button isn't in the scene.
@@ -38,7 +39,10 @@ namespace RustyFishing
             for(int i=0;i<portArt.Count&&i<GameCatalog.Ports.Count;i++){
                 float sx=(GameCatalog.Ports[i].x-boatX)*GameCatalog.WorldScrollPpu;
                 var prt=portArt[i].rectTransform;
-                prt.anchoredPosition=new Vector2(sx,prt.anchoredPosition.y);
+                // Bottom-centre pivot: anchoredPosition.y IS the bottom edge, so ports of any height rest
+                // their base on the same waterline (PortY). Set the pivot once (idempotent), then drive X.
+                if(prt.pivot.x!=0.5f||prt.pivot.y!=0f)prt.pivot=new Vector2(0.5f,0f);
+                prt.anchoredPosition=new Vector2(sx,GameCatalog.PortY);
                 portArt[i].gameObject.SetActive(Mathf.Abs(sx)<GameCatalog.PortCullPx);
             }
             var field=GameCatalog.ObstacleField;
@@ -87,7 +91,23 @@ namespace RustyFishing
                 if(boat!=null)img.transform.SetSiblingIndex(boat.transform.GetSiblingIndex());
                 obstacleArt.Add(img);}
             PlaceWorldArt();}   // counts match now, so this places them instead of recursing
-        void Wreck(){EndKraken(false);dockingPort=null;dockZoom01=dockZoomTarget=0f;ApplyDockCamera();save.Data.cargo.Clear();save.Data.hullHp=0;save.Store();phaseTime=0;worldHour=6;OpenHarbor(GameCatalog.Ports[0]);Set(message,"The ship sank. All fish were lost. Pay for repairs.");}
+        void Wreck(){
+            EndKraken(false);dockingPort=null;dockZoom01=dockZoomTarget=0f;ApplyDockCamera();
+            if(save.RestoreDayStart()){
+                // Sinking rewinds to this morning: HP, coins, cargo, upgrades and stock all return to how
+                // they were at dawn, and you wake at that day's harbour. A lost run costs the day, not progress.
+                ApplyDepthScale();SyncUpgradeArt();
+                phaseTime=0;worldHour=6;save.Data.phaseTime=0;boatSpeed=0;wasNight=false;
+                RepopulateFish();HideKrakenVisualsImmediate();
+                OpenHarbor(GameCatalog.PortById(save.Data.lastPortId));
+                Set(message,"The ship went down — you wake at the start of the day.");
+            }else{
+                // No snapshot (very old save): heal and go home, losing only the day's catch.
+                save.Data.cargo.Clear();save.Data.hullHp=save.MaxHp;phaseTime=0;worldHour=6;save.Data.phaseTime=0;save.Store();
+                HideKrakenVisualsImmediate();OpenHarbor(GameCatalog.Ports[0]);
+                Set(message,"The ship sank. Repaired at Home Harbor.");
+            }
+        }
 
         // Full-screen red flash overlay for collision feedback (built at runtime; BuildSea is skipped on a baked canvas).
         void SetupHitFx(){var rt=RuntimeUI.Rect(sea,"HitFlash",Vector2.zero,new Vector2(1080,1920));hitFlash=rt.gameObject.AddComponent<Image>();hitFlash.color=new Color(1f,.27f,.24f,0);hitFlash.raycastTarget=false;rt.SetAsLastSibling();}

@@ -56,12 +56,17 @@ namespace RustyFishing
             // Hook upgrades move the hook faster through the water as well as hitting harder. Descent eats
             // into the same 12s the fight needs, so reach speed is what actually opens up the deep bands.
             float hookSpeed=save.HookSpeedMultiplier;
+            Vector2 preMove=hookOffset;
             hookOffset+=new Vector2(vx*hookSpeed*GameCatalog.PixelsPerUnit,-vy*hookSpeed*GameCatalog.DepthPx*DepthSpeedGain())*dt;
             hook.anchoredPosition=new Vector2(0,SeaMap.HookRestY)+hookOffset;
             // Stop the BODY at the limit, not the origin: the barb hangs ~50px*scale below the hook's own
             // pivot, so clamping the pivot let the whole business end sink past the band edge.
             float floorPx=MaxCastDepthU()*GameCatalog.DepthPx-HookReachBelowOrigin();
             hookOffset.y=Mathf.Clamp(hookOffset.y,-Mathf.Max(0f,floorPx),0f);
+            // How far the hook actually moved on screen this frame. A parked hook (e.g. resting at the depth
+            // floor while you hold DOWN) reads ~0 and deals NO damage — you must actively work it across a
+            // fish to bite, instead of sinking to the bottom and letting it cook whatever drifts by.
+            float hookMovePx=(hookOffset-preMove).magnitude/Mathf.Max(dt,1e-4f);
             hook.anchoredPosition=new Vector2(0,SeaMap.HookRestY)+hookOffset;
             // Point the hook in its direction of travel — the BARB (bottom of the sprite) leads. Sinking straight
             // down gives 0° (natural, barb down); pushing up rotates toward 180° (barb up); moving sideways tilts.
@@ -79,18 +84,46 @@ namespace RustyFishing
             // range on the same frame, so a shoal was whittled down in parallel and two or three died
             // within a few frames of each other: it read as a single catch that dropped three fish into
             // the hold. A hook catches what it is stuck in, not everything swimming past it.
-            FishActor bite=null;float best=float.MaxValue;
+            FishActor bite=null;float best=float.MaxValue;int nInRange=0;
             foreach(var f in fish){
                 // Skip anything that cannot be caught, or it would stand in front of a fish that can:
                 // Hit() refuses locked and leaving fish, so as the nearest one it would simply block.
-                if(!f||f.Leaving||f.Locked)continue;
+                // MUST also skip non-visible fish: off-screen/parked fish early-return in Tick() before
+                // repositioning, so they sit at their spawn x=0 (right under the boat) with the sprite
+                // hidden — and the sinking hook was "catching" those invisible ghosts. Only a drawn fish
+                // is really in the water.
+                if(!f||f.Leaving||f.Locked||!f.Visible)continue;
                 float d=DistanceToHookBody(f.Rect.anchoredPosition+fishLayer.anchoredPosition);
-                if(d>=(55+f.Def.size*25)*zoom||d>=best)continue;
+                // Reach = the fish's actual body radius (half its on-screen width * a fraction) plus a small
+                // flat margin. Touching the fish body with any part of the shank counts, not just its centre.
+                float reach=FishWidthPx(f.Def)*GameCatalog.FishHitFraction+GameCatalog.HookCatchRadius*zoom;
+                if(d>=reach)continue;
+                nInRange++;
+                if(d>=best)continue;
                 best=d;bite=f;
             }
-            if(bite!=null&&bite.Hit(GameCatalog.HookDamage*save.DamageMultiplier*dt)){
+            bool biteGate=bite!=null&&hookMovePx>=GameCatalog.HookBiteMinSpeed;
+            if(GameCatalog.debugFishing&&bite!=null){
+                _fishDbgT-=dt;
+                if(_fishDbgT<=0f){
+                    _fishDbgT=0.2f;
+                    float thr=FishWidthPx(bite.Def)*GameCatalog.FishHitFraction+GameCatalog.HookCatchRadius*zoom;
+                    Vector2 fpos=bite.Rect.anchoredPosition+fishLayer.anchoredPosition;
+                    Vector2 hpos=hook.anchoredPosition;
+                    Debug.Log($"[FISHDBG] near={bite.Def.id} vis={bite.Visible} hp={bite.Hp:0.0} d={best:0} thr={thr:0} nInRange={nInRange} "
+                             +$"fishRect={bite.Rect.sizeDelta.x:0}x{bite.Rect.sizeDelta.y:0} fishPos=({fpos.x:0},{fpos.y:0}) hookPos=({hpos.x:0},{hpos.y:0}) "
+                             +$"hookMove={hookMovePx:0} gate={biteGate} joy=({joystick.Value.x:0.00},{joystick.Value.y:0.00}) frame={Time.frameCount}");
+                }
+            }
+            if(biteGate&&bite.Hit(GameCatalog.HookDamage*save.DamageMultiplier*dt)){
                 // Always catch — even when the basket is full. If it overflows, open the toss modal.
                 var f=bite;
+                if(GameCatalog.debugFishing){
+                    bool atFloorC=hookOffset.y<=-Mathf.Max(0f,floorPx)+1.5f;
+                    string how=atFloorC?"PARKED-AT-FLOOR":(Mathf.Abs(joystick.Value.x)<.12f?"VERTICAL-DESCENT":"STEERED");
+                    Debug.Log($"[FISHDBG] CAUGHT {f.Def.id} via {how} — hookMove={hookMovePx:0} "
+                             +$"hookY={hookOffset.y:0}/floor={-Mathf.Max(0f,floorPx):0} joy=({joystick.Value.x:0.00},{joystick.Value.y:0.00})");
+                }
                 fish.Remove(f);f.Collect(new Vector2(95,300)-fishLayer.anchoredPosition);
                 int before=save.Data.cargo.Count;
                 save.AddForced(f.Def.id,AbsHour,f.WeightMul);
@@ -153,6 +186,7 @@ namespace RustyFishing
             bubbles.ReportVelocity(HookTip(),vel,dt);   // HookBubbles decides what counts as being checked
         }
         float lastHookDebug;
+        float _fishDbgT;   // throttle for the [FISHDBG] catch trace
         void RetractHook(float dt){float step=GameCatalog.HookRetract*save.HookSpeedMultiplier*GameCatalog.PixelsPerUnit*dt;float dist=hookOffset.magnitude;if(dist<=step){hookOffset=Vector2.zero;hook.anchoredPosition=new Vector2(0,SeaMap.HookRestY);DrawLine();EndFishing();return;}hookOffset-=hookOffset/dist*step;hook.anchoredPosition=new Vector2(0,SeaMap.HookRestY)+hookOffset;DrawLine();}
         // The fishing line is a little Verlet rope pinned at the rod tip and the hook. It TRAILS/LAGS behind
         // the hook as it moves (inertia in the interior nodes) instead of snapping to a straight segment, and
@@ -376,7 +410,7 @@ namespace RustyFishing
 
         /// <summary>On-screen width of this species at the current zoom — also the spacing yardstick.</summary>
         float FishWidthPx(FishDef def)=>
-            (fishSizeBase+def.size*fishSizePer)*fishScale*GameCatalog.FishSizeScale*DepthZoom();
+            (fishSizeBase+Mathf.Max(GameCatalog.MinFishSize,def.size)*fishSizePer)*fishScale*GameCatalog.FishSizeScale*DepthZoom();
 
         /// <summary>
         /// Is there room for a fish of this width at this spot? Two fish are never allowed to overlap:

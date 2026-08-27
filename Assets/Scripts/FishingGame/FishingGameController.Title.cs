@@ -95,6 +95,7 @@ namespace RustyFishing
             // Harbor" line is still unticked when the player actually sails back.
             EnsureMissionAssigned();
             UpdateMissionUI();
+            save.CaptureDayStart();   // day 1 dawn — the rewind point for a sinking on the first day
             // A new game lands IN THE HARBOUR, not at sea. Continue still sails, because a returning
             // player was mid-voyage -- but the opening tutorial talks about the dock, the SET SAIL button
             // and steering out of the harbour, and none of that can be pointed at from open water.
