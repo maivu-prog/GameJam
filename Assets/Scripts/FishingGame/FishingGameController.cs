@@ -335,10 +335,12 @@ namespace RustyFishing
             SetupTitleRefs();      // last: it decides whether the harbour is reachable yet
             MissionsWorldReady();  // from here on, a docking is the player arriving — not Awake building
 
-            // In-game tuning overlay (the ⚙ TUNE button top-left / press T). It is NOT in the hand-built
-            // scene, so spawn it here or the panel never exists. Builds its own top-most canvas.
-            if (FindFirstObjectByType<TuningPanel>() == null)
-                new GameObject("TuningPanel").AddComponent<TuningPanel>();
+            // In-game tuning overlay (the ⚙ TUNE button top-left / press T). Editor & Development builds
+            // only — it must NOT ship in a release build. Spawned here because it isn't in the hand-built
+            // scene. Builds its own top-most canvas.
+            if (Application.isEditor || Debug.isDebugBuild)
+                if (FindFirstObjectByType<TuningPanel>() == null)
+                    new GameObject("TuningPanel").AddComponent<TuningPanel>();
 
             // Tuning lives on the TuningInspector component of this GameObject (added via RequireComponent, so
             // it's editable in Edit mode). It re-applies its serialized values in its own Start(), after this.
