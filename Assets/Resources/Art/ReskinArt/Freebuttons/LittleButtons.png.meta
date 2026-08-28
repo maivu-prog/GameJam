@@ -79,7 +79,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,7 @@ TextureImporter:
     maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -448,7 +448,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      LittleButtons_0: 8920604179408261592
+      LittleButtons_1: -1756503558578526245
+      LittleButtons_10: -8546486199536703898
+      LittleButtons_11: 6453463823853640745
+      LittleButtons_2: -7692621753309318217
+      LittleButtons_3: -3598488207724348792
+      LittleButtons_4: 8727067245247918573
+      LittleButtons_5: 9073211219103130952
+      LittleButtons_6: 988682713418555572
+      LittleButtons_7: -3169845847569441157
+      LittleButtons_8: -3642087815753487226
+      LittleButtons_9: -2618473444624176532
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -123,7 +123,7 @@ namespace RustyFishing.Editor
                 rt.sizeDelta = new Vector2(660, 120);
 
                 var img = go.AddComponent<Image>();
-                img.sprite = Resources.Load<Sprite>("Art/UI/Harbor/primary-button");
+                img.sprite = DirectReskinSprites.Load("UI/Harbor/primary-button");
                 img.type = Image.Type.Simple;
                 var btn = go.AddComponent<Button>();
                 btn.targetGraphic = img;
@@ -190,7 +190,7 @@ namespace RustyFishing.Editor
                 rt.sizeDelta = new Vector2(900, 130);
 
                 var plate = go.AddComponent<Image>();
-                plate.sprite = Resources.Load<Sprite>("Art/UI/Harbor/small-card");
+                plate.sprite = DirectReskinSprites.Load("UI/Harbor/small-card");
                 plate.type = Image.Type.Simple;
                 plate.preserveAspect = false;
                 plate.raycastTarget = false;   // it floats over the harbour buttons; it must not eat taps

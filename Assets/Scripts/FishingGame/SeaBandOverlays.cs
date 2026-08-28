@@ -79,9 +79,9 @@ namespace RustyFishing
         static Sprite LoadDefaultSprite(string band)
         {
             if (string.Equals(band, "B", StringComparison.OrdinalIgnoreCase))
-                return Resources.Load<Sprite>("Art/World/BandOverlays/band-b-overlay");
+                return DirectReskinSprites.Load("World/BandOverlays/band-b-overlay");
             if (string.Equals(band, "C", StringComparison.OrdinalIgnoreCase))
-                return Resources.Load<Sprite>("Art/World/BandOverlays/band-c-overlay");
+                return DirectReskinSprites.Load("World/BandOverlays/band-c-overlay");
             return null;
         }
 

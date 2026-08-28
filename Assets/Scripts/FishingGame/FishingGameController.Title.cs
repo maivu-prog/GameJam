@@ -17,9 +17,49 @@ namespace RustyFishing
             BindClick(continueButton, HideTitle);
             BindClick(newGameButton, NewGame);
             if (titleScreen == null) return;          // no menu authored: go straight to the harbour
+            ConfigureDirectTitleArt();
             titleScreen.gameObject.SetActive(true);
             ShowWorld(false);                         // menu is up — the harbour must not sit behind it
             RefreshTitle();
+        }
+
+        void ConfigureDirectTitleArt()
+        {
+            var logo = titleScreen.Find("Logo")?.GetComponent<Image>();
+            if (logo != null)
+            {
+                var directLogo = DirectReskinSprites.Load("rusty-fishing-title-logo");
+                if (directLogo != null) logo.sprite = directLogo;
+                logo.preserveAspect = true;
+                logo.rectTransform.anchoredPosition = new Vector2(0f, 590f);
+                logo.rectTransform.sizeDelta = new Vector2(360f, 430f);
+            }
+
+            if (titleScreen.Find("RuntimeTitle") != null) return;
+            var titleObject = new GameObject("RuntimeTitle", typeof(RectTransform), typeof(CanvasRenderer),
+                                             typeof(TextMeshProUGUI), typeof(Shadow));
+            var titleRect = titleObject.GetComponent<RectTransform>();
+            titleRect.SetParent(titleScreen, false);
+            titleRect.anchorMin = titleRect.anchorMax = titleRect.pivot = new Vector2(.5f, .5f);
+            titleRect.anchoredPosition = new Vector2(0f, 300f);
+            titleRect.sizeDelta = new Vector2(900f, 190f);
+
+            var title = titleObject.GetComponent<TextMeshProUGUI>();
+            title.text = "RUSTY FISHING";
+            title.alignment = TextAlignmentOptions.Center;
+            title.color = new Color32(255, 244, 208, 255);
+            title.enableAutoSizing = true;
+            title.fontSizeMin = 54f;
+            title.fontSizeMax = 104f;
+            title.fontStyle = FontStyles.Bold;
+            title.raycastTarget = false;
+            var buttonLabel = newGameButton != null ? newGameButton.GetComponentInChildren<TMP_Text>(true) : null;
+            if (buttonLabel != null) title.font = buttonLabel.font;
+
+            var shadow = titleObject.GetComponent<Shadow>();
+            shadow.effectColor = new Color32(61, 29, 29, 230);
+            shadow.effectDistance = new Vector2(8f, -8f);
+            titleObject.transform.SetSiblingIndex(logo != null ? logo.transform.GetSiblingIndex() + 1 : 1);
         }
 
         /// <summary>

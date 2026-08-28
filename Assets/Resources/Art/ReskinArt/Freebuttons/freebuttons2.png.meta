@@ -139,7 +139,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -168,7 +168,7 @@ TextureImporter:
     maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -948,7 +948,39 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      freebuttons2_0: -1572581450591566368
+      freebuttons2_1: 5347564824689686261
+      freebuttons2_10: 2661830405117713476
+      freebuttons2_11: 3676721139253171927
+      freebuttons2_12: 3508782827696732225
+      freebuttons2_13: 1289908889633037319
+      freebuttons2_14: 1210505409907200061
+      freebuttons2_15: -7592744397106687238
+      freebuttons2_16: -9087468077472990103
+      freebuttons2_17: -8473430876106966508
+      freebuttons2_18: 8584958864793022268
+      freebuttons2_19: 6629086783096908547
+      freebuttons2_2: 8088709233694997881
+      freebuttons2_20: 7879068758934183280
+      freebuttons2_21: 8153494367677954749
+      freebuttons2_22: -2279020368667904260
+      freebuttons2_23: 5583866894045217715
+      freebuttons2_24: -5699633955959496054
+      freebuttons2_25: 4768981188959016676
+      freebuttons2_26: 4914460907393443341
+      freebuttons2_27: -2563551379439078602
+      freebuttons2_28: -3205254343282188240
+      freebuttons2_29: -7439715729477993638
+      freebuttons2_3: 2035970164575465437
+      freebuttons2_30: 2129731772008155674
+      freebuttons2_31: -25127794698741841
+      freebuttons2_4: -5626256430255437534
+      freebuttons2_5: -7036053879214894102
+      freebuttons2_6: 4744979183817382814
+      freebuttons2_7: -2167711727258961227
+      freebuttons2_8: -5549678383182560730
+      freebuttons2_9: 329043352927386631
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

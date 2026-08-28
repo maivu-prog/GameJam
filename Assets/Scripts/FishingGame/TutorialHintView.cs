@@ -47,6 +47,7 @@ namespace RustyFishing
         void Awake()
         {
             if (root == null) return;
+            ConfigureLayout();
             group = root.GetComponent<CanvasGroup>();
             if (group == null) group = root.AddComponent<CanvasGroup>();
             // A hint must never eat a touch: the player is being told to press something, and the strip
@@ -56,6 +57,37 @@ namespace RustyFishing
             group.alpha = 0f;
             // Only safe when root is something else -- see above.
             if (root != gameObject && !root.activeSelf) root.SetActive(true);
+        }
+
+        void ConfigureLayout()
+        {
+            if (root.transform is RectTransform rootRect)
+            {
+                rootRect.anchorMin = rootRect.anchorMax = rootRect.pivot = new Vector2(.5f, .5f);
+                rootRect.anchoredPosition = new Vector2(0f, -390f);
+                rootRect.sizeDelta = new Vector2(900f, 140f);
+            }
+
+            var background = root.GetComponent<Image>();
+            if (background != null)
+            {
+                background.color = new Color(0.08f, 0.045f, 0.055f, .82f);
+                background.raycastTarget = false;
+            }
+
+            if (label == null) return;
+            var labelRect = label.rectTransform;
+            labelRect.anchorMin = Vector2.zero;
+            labelRect.anchorMax = Vector2.one;
+            labelRect.pivot = new Vector2(.5f, .5f);
+            labelRect.anchoredPosition = Vector2.zero;
+            labelRect.sizeDelta = new Vector2(-48f, -20f);
+            label.alignment = TextAlignmentOptions.Center;
+            label.fontStyle = FontStyles.Normal;
+            label.enableAutoSizing = true;
+            label.fontSizeMin = 24f;
+            label.fontSizeMax = 42f;
+            label.raycastTarget = false;
         }
 
         /// <summary>Pass the hint text, or null/empty for "nothing to say right now".</summary>

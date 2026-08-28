@@ -67,7 +67,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -96,7 +96,7 @@ TextureImporter:
     maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -348,7 +348,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      cast bobbin Sheet_0: -178191130871379184
+      cast bobbin Sheet_1: -8265158390908945909
+      cast bobbin Sheet_2: -4122339749929148486
+      cast bobbin Sheet_3: 5112715912643116913
+      cast bobbin Sheet_4: -3156047763571183527
+      cast bobbin Sheet_5: 2070617198112801955
+      cast bobbin Sheet_6: 3204753280707238148
+      cast bobbin Sheet_7: -3770422179119733824
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

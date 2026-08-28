@@ -67,7 +67,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -96,7 +96,7 @@ TextureImporter:
     maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -348,7 +348,15 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      old man reel in action Sheet_0: -3415308947415476418
+      old man reel in action Sheet_1: 1349964418662910959
+      old man reel in action Sheet_2: 1155703049820106284
+      old man reel in action Sheet_3: -5621401661028353777
+      old man reel in action Sheet_4: 5175405878567421960
+      old man reel in action Sheet_5: 6248890738797120389
+      old man reel in action Sheet_6: -2056259147968561004
+      old man reel in action Sheet_7: 3669136261354054671
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

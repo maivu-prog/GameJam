@@ -10,7 +10,8 @@ namespace RustyFishing
     {
         public static Sprite Sprite(string path)
         {
-            var sprite=Resources.Load<Sprite>("Art/"+path);
+            var sprite=DirectReskinSprites.Load(path);
+            if(sprite==null)sprite=Resources.Load<Sprite>("Art/"+path);
             if(sprite==null)Debug.LogError($"Missing UI sprite: Assets/Resources/Art/{path}.png");
             return sprite;
         }
