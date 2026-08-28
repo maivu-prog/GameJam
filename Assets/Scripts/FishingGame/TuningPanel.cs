@@ -29,7 +29,8 @@ namespace RustyFishing
 
         void Start()
         {
-            Ui = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
+            Ui = Resources.Load<Font>("Fonts/PixelifySans/PixelifySans-Bold");
+            if (Ui == null) Ui = Resources.GetBuiltinResource<Font>("LegacyRuntime.ttf");
             BuildSpecs();
             foreach (var s in specs) defaults[s] = s.get();
             BuildUi();

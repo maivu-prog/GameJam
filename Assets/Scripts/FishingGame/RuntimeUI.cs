@@ -26,8 +26,9 @@ namespace RustyFishing
         { var go=new GameObject(name,typeof(RectTransform));var r=go.GetComponent<RectTransform>();r.SetParent(parent,false);r.anchorMin=r.anchorMax=new Vector2(.5f,.5f);r.pivot=new Vector2(.5f,.5f);r.anchoredPosition=pos;r.sizeDelta=size;return r; }
         public static Image Image(Transform parent,string name,string path,Vector2 pos,Vector2 size)
         {var r=Rect(parent,name,pos,size);var i=r.gameObject.AddComponent<Image>();i.sprite=Sprite(path);i.preserveAspect=true;return i;}
+        static TMP_FontAsset pixelFont;
         public static TMP_Text Text(Transform parent,string value,Vector2 pos,Vector2 size,int fontSize=34,TextAnchor align=TextAnchor.MiddleCenter,Color? color=null)
-        {var r=Rect(parent,"Text",pos,size);var t=r.gameObject.AddComponent<TextMeshProUGUI>();t.text=value;t.fontSize=fontSize;t.fontStyle=FontStyles.Bold;t.alignment=ToTMP(align);t.color=color??new Color(.11f,.15f,.14f);t.enableAutoSizing=true;t.fontSizeMin=12;t.fontSizeMax=fontSize;t.raycastTarget=false;return t;}
+        {var r=Rect(parent,"Text",pos,size);var t=r.gameObject.AddComponent<TextMeshProUGUI>();if(pixelFont==null)pixelFont=Resources.Load<TMP_FontAsset>("Fonts/PixelifySans/Pixelify Sans Bold SDF");if(pixelFont!=null)t.font=pixelFont;t.text=value;t.fontSize=fontSize;t.fontStyle=FontStyles.Normal;t.alignment=ToTMP(align);t.color=color??new Color(.11f,.15f,.14f);t.enableAutoSizing=true;t.fontSizeMin=12;t.fontSizeMax=fontSize;t.raycastTarget=false;return t;}
         static TextAlignmentOptions ToTMP(TextAnchor a)=>a switch{
             TextAnchor.UpperLeft=>TextAlignmentOptions.TopLeft,TextAnchor.UpperCenter=>TextAlignmentOptions.Top,TextAnchor.UpperRight=>TextAlignmentOptions.TopRight,
             TextAnchor.MiddleLeft=>TextAlignmentOptions.Left,TextAnchor.MiddleCenter=>TextAlignmentOptions.Center,TextAnchor.MiddleRight=>TextAlignmentOptions.Right,
