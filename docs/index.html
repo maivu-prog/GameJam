@@ -17,11 +17,9 @@
         </div>
       </div>
       <div id="unity-warning"> </div>
-      <!-- Fullscreen is lifted out of the footer, which is hidden: a child cannot show through a
-           parent that is display:none, and the button is worth keeping for a portrait game. -->
-      <div id="unity-fullscreen-button"></div>
       <div id="unity-footer">
         <div id="unity-logo-title-footer"></div>
+        <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">GameJam</div>
       </div>
     </div>
@@ -105,41 +103,9 @@
 
 
       } else {
-        // Portrait game on a landscape screen: size the canvas from the WINDOW HEIGHT and derive the
-        // width from the 9:16 aspect, so it fills the browser vertically without ever being cropped or
-        // stretched. The stock template hard-codes 960x600 landscape, which showed this game letterboxed
-        // into a small horizontal box.
-        // Portrait game on a landscape screen. Height comes from the window, width follows the 9:16
-        // aspect, so the game fills the screen vertically and is never cropped or stretched.
-        //
-        // The footer has to be measured and subtracted, not ignored: Unity's own bar sits BELOW the
-        // canvas and pushes it past the bottom of the viewport, which cut the game off exactly as much
-        // as the bar is tall.
-        // Portrait game, landscape screen. Fit ENTIRELY inside the window at the game's aspect: take
-        // whichever of height or width runs out first, and let it be smaller rather than cropped.
-        //
-        // 1080x2340, not the 1080x1920 reference resolution. The CanvasScaler matches WIDTH only
-        // (m_MatchWidthOrHeight: 0), so the canvas is always 1080 units across and its HEIGHT follows
-        // the screen: a 9:16 window shows 1920 units, a modern 19.5:9 phone shows 2340. The layout was
-        // authored against a phone preview, so framing it at 1920 here clipped the title art that a
-        // real handset has room for.
-        var ASPECT = 1080 / 2340;
-        var MARGIN = 16;
-        var footer = document.querySelector("#unity-footer");
-        function fitCanvas() {
-          var chrome = (footer && footer.offsetHeight) || 0;
-          var availH = Math.max(200, window.innerHeight - chrome - MARGIN);
-          var availW = Math.max(120, window.innerWidth - MARGIN);
-          // Height-limited unless the window is narrow, in which case width decides.
-          var h = Math.min(availH, availW / ASPECT);
-          var w = h * ASPECT;
-          canvas.style.width = w + "px";
-          canvas.style.height = h + "px";
-        }
-        fitCanvas();
-        window.addEventListener("resize", fitCanvas);
-        // The layout settles after images load, so measure once more.
-        window.addEventListener("load", fitCanvas);
+        // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+        canvas.style.width = "1080px";
+        canvas.style.height = "2340px";
       }
 
       document.querySelector("#unity-loading-bar").style.display = "block";

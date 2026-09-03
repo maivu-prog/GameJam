@@ -14,27 +14,3 @@ body { padding: 0; margin: 0 }
 #unity-build-title { float: right; margin-right: 10px; line-height: 38px; font-family: arial; font-size: 18px }
 #unity-fullscreen-button { cursor:pointer; float: right; width: 38px; height: 38px; background: url('fullscreen-button.png') no-repeat center }
 #unity-warning { position: absolute; left: 50%; top: 5%; transform: translate(-50%); background: white; padding: 10px; display: none }
-
-/* footer hidden for the portrait build */
-/* The Unity footer bar sat below the canvas and stole height from a portrait game, so the bottom of
-   the screen was cut off by exactly its height. Hidden here; the fullscreen button it used to carry
-   is floated over the canvas instead of disappearing with it. */
-#unity-footer { display: none !important }
-#unity-fullscreen-button {
-  display: block; position: fixed; right: 12px; top: 12px; z-index: 5;
-  width: 38px; height: 38px; cursor: pointer; opacity: .5;
-  background: url('fullscreen-button.png') no-repeat center;
-  border-radius: 6px; float: none; margin: 0;
-}
-#unity-fullscreen-button:hover { opacity: 1 }
-
-/* portrait: pin to the viewport */
-/* The stock template positions the container with absolute + top:50%, which centres it against the
-   BODY height rather than the viewport. Once the canvas is as tall as the window, that leaves the
-   page a few pixels taller than the screen: a scrollbar appears and the bottom of the game sits
-   below the fold. Pinning to the viewport and refusing to scroll removes both. */
-html, body { height: 100%; overflow: hidden; background: #231F20 }
-#unity-container.unity-desktop {
-  position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%);
-}
-#unity-canvas { display: block }
