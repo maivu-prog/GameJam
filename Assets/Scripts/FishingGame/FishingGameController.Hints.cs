@@ -21,6 +21,7 @@ namespace RustyFishing
         {
             public string id, text;
             public bool sequence;        // part of the ordered opening, rather than situational
+            public bool critical;        // a situational line urgent enough to fire even mid opening-sequence
             public Func<bool> Show;      // the player is in this situation right now
             public Func<bool> Learned;   // ...and this is what proves they got it
 
@@ -36,7 +37,10 @@ namespace RustyFishing
         }
 
         List<Hint> hints;
-        bool hookEverMoved, everCast, everSoldFresh, everCrossedSafely, everDocked, everSailed;
+        bool hookEverMoved, everCast, everSoldFresh, everCrossedSafely, everDocked, everSailed, everCaught;
+        bool everShowedNoteSea;       // brought out the mission note (MISSIONS button) at sea at least once
+        bool everCheckedMissionSea;   // opened the full Ledger (see more) from the sea at least once
+        bool everToggledTrack;        // toggled the mission note (TRACK/UNTRACK) at least once after accepting
         float hintHoldUntil;             // keep the current line up briefly so it cannot flicker
         bool hintWarned;                 // the "not wired" warning prints once, not every frame
         string hintLast;                 // last line handed to the view, for the debug trace
@@ -48,67 +52,118 @@ namespace RustyFishing
         {
             hints = new List<Hint>
             {
-                // ---- the opening loop, in order ----
-                new Hint {
-                    id = "dock_intro", sequence = true, dwellSeconds = 4f,
-                    text = "This is the dock. Sell your catch, repair and upgrade here "
-                         + "when you have fish and coin.",
-                    // Nothing to do -- it just names the place, then stands aside for SET SAIL.
-                    Show = () => mode == Mode.Harbor,
-                    Learned = () => everSailed,
-                },
-                new Hint {
-                    id = "set_sail", sequence = true,
-                    text = "Tap SET SAIL to leave the dock.",
-                    Show = () => mode == Mode.Harbor,
-                    Learned = () => everSailed,
-                },
+                // ---- the opening loop, in Mai's order ----
+                // 1) Leave harbour
                 new Hint {
                     id = "steer_out", sequence = true,
                     text = "Tap the Left and Right arrows to take the ship out of the harbour.",
                     // Harbour water is a truce -- nothing bites inside it, so the first job is to leave.
+                    // Learned = simply "you left the harbour water". Does NOT depend on everSailed, because we
+                    // now boot straight to sea via SetSail (not the SET SAIL button), so everSailed may be
+                    // false here — and gating on it left this step permanently pending, blocking all the rest.
                     Show = () => AtSea && GameCatalog.InSafeZone(boatX),
-                    Learned = () => everSailed && !GameCatalog.InSafeZone(boatX),
+                    Learned = () => AtSea && !GameCatalog.InSafeZone(boatX),
                 },
+                // 2) Learn the dial is a joystick
                 new Hint {
                     id = "cast", sequence = true,
-                    text = "Hold and move the FISH dial to control your hook.",
+                    text = "Hold the FISH dial, then DRAG it — the dial is a joystick that steers your hook.",
                     Show = () => AtSea && !GameCatalog.InSafeZone(boatX),
                     Learned = () => everCast,
                 },
+                // 3) Drain a fish to catch it
                 new Hint {
                     id = "steer_hook", sequence = true,
-                    text = "Hook onto a fish to drain it, until the fish is yours.",
-                    // Not instantly: firing during the cast animation reads as a complaint, not a hint.
+                    text = "Move your hook onto a fish and hold it there — drain its health bar to catch it.",
                     Show = () => mode == Mode.Fishing && hookTime > 1.5f,
-                    Learned = () => hookEverMoved,
+                    Learned = () => everCaught,
                 },
+                // 4) Sail home and dock
                 new Hint {
                     id = "dock_back", sequence = true,
                     text = "Sail back to a port and tap DOCK to go ashore.",
                     Show = () => AtSea && save.Data.cargo.Count > 0,
                     Learned = () => everDocked,
                 },
+                // 5) What the dock is for (info)
+                new Hint {
+                    id = "dock_intro", sequence = true, dwellSeconds = 4f,
+                    text = "This is the dock. Sell your catch, repair and upgrade here "
+                         + "when you have fish and coin.",
+                    // Only after the tutorial docking, and gated behind dock_back in the sequence.
+                    Show = () => mode == Mode.Harbor && everDocked,
+                    Learned = () => false,
+                },
+                // 6) Sell
                 new Hint {
                     id = "sell", sequence = true,
                     text = "Tap SELL on a fish to sell it.",
                     Show = () => mode == Mode.Harbor && save.Data.cargo.Count > 0,
                     Learned = () => everSoldFresh,
                 },
+                // 7) Freshness rule (info)
                 new Hint {
                     id = "freshness", sequence = true, dwellSeconds = 5f,
                     text = "Only fresh fish fetch a good price. Once a fish rots it is worth nothing.",
-                    // A beat after the first sale, not on top of it: the coins and the row sliding away
-                    // are their own piece of feedback, and a rule landing in the middle of that is lost.
                     Show = () => mode == Mode.Harbor
                                  && firstSaleAt > 0f && Time.time >= firstSaleAt + 2f,
-                    // Purely informational -- dwellSeconds retires it. Nothing to demonstrate.
                     Learned = () => false,
+                },
+                // 8) Take the first job — open MISSIONS and ACCEPT
+                new Hint {
+                    id = "accept_mission", sequence = true,
+                    text = "Open MISSIONS and tap ACCEPT to take your first job.",
+                    Show = () => mode == Mode.Harbor && MissionOffered,
+                    Learned = () => MissionAccepted,
+                },
+                // 9) Close the mission panel before sailing.
+                // Learned only once the mission is ACCEPTED and the panel is then CLOSED — NOT simply "ledger
+                // shut", which is true most of the time and would retire this step before it is ever reached.
+                new Hint {
+                    id = "close_ledger", sequence = true,
+                    text = "Tap Back to Harbour to close the mission panel.",
+                    Show = () => mode == Mode.Harbor && ledgerOpen,
+                    Learned = () => MissionAccepted && !ledgerOpen,
+                },
+                // 10) Head out again (info)
+                new Hint {
+                    id = "set_sail", sequence = true, dwellSeconds = 4f,
+                    text = "Tap SET SAIL to head back out.",
+                    Show = () => mode == Mode.Harbor && everSoldFresh,
+                    Learned = () => false,
+                },
+                // 11) At sea: bring out the mission note
+                new Hint {
+                    id = "sea_open_note", sequence = true,
+                    text = "At sea, tap MISSIONS to bring out your mission note.",
+                    Show = () => AtSea,
+                    Learned = () => everShowedNoteSea,
+                },
+                // 12) See more → the full log
+                new Hint {
+                    id = "sea_see_more", sequence = true,
+                    text = "Tap the note's arrow to see the full mission details.",
+                    Show = () => AtSea && trackerShown && !ledgerOpen,
+                    Learned = () => everCheckedMissionSea,
+                },
+                // 13) Track / untrack the note
+                new Hint {
+                    id = "sea_track", sequence = true,
+                    text = "Tap TRACK to pin the mission note to your screen (tap again to hide it).",
+                    Show = () => AtSea && ledgerOpen,
+                    Learned = () => everToggledTrack,
+                },
+                // 14) Close the log
+                new Hint {
+                    id = "sea_close", sequence = true, dwellSeconds = 3f,
+                    text = "Tap Back to Harbour to close. Check missions any time from MISSIONS.",
+                    Show = () => AtSea && ledgerOpen,
+                    Learned = () => everToggledTrack && !ledgerOpen,
                 },
 
                 // ---- situational, once the opening loop is behind them ----
                 new Hint {
-                    id = "slow_obstacle",
+                    id = "slow_obstacle", critical = true,
                     text = "Slow down. Your speed has to be below the blue needle to pass without a scratch.",
                     // Fires on the approach to the FIRST obstacle, whatever the current speed. Waiting
                     // until the boat is already too fast teaches the rule at the moment it is too late to
@@ -118,7 +173,7 @@ namespace RustyFishing
                     Learned = () => everCrossedSafely,
                 },
                 new Hint {
-                    id = "spoil", dwellSeconds = 4f,
+                    id = "spoil", critical = true, dwellSeconds = 4f,
                     // A WARNING, not the rule -- the rule is taught by the "freshness" step above. This
                     // one fires while it is actually happening, so it says what to do about it.
                     // It needs a dwell: with no action to wait for it would never retire, and a hint that
@@ -216,11 +271,15 @@ namespace RustyFishing
                 break;
             }
 
-            if (show == null && !sequencePending)
+            // Situational lines normally wait until the opening sequence is done, but CRITICAL ones (a hazard
+            // dead ahead, a hold turning) fire even mid-tutorial — the opening sequence got long enough that
+            // suppressing a collision warning until it finished was leaving the player to hit things blind.
+            if (show == null)
                 for (int i = 0; i < hints.Count && show == null; i++)
                 {
                     var h = hints[i];
                     if (h.sequence || Learned(h.id) || !h.Show()) continue;
+                    if (sequencePending && !h.critical) continue;
                     if (Dwell(h)) show = h.text;
                 }
 
@@ -286,6 +345,7 @@ namespace RustyFishing
         void HintsOnSail() { everSailed = true; }
         void HintsOnCast() { everCast = true; }
         void HintsOnHookMoved() { hookEverMoved = true; }
+        void HintsOnCatch() { everCaught = true; }
         void HintsOnDock() { everDocked = true; }
         void HintsOnSafeCrossing() { everCrossedSafely = true; }
         void HintsOnSale(IReadOnlyList<string> freshness)

@@ -21,6 +21,10 @@ namespace RustyFishing
         // not a constant: deep water fish run harder, so the same hp bar takes more chasing to whittle down.
         float fleeSeconds,fleeSpeedMul,fleeRoamPx;
         float direction,baseY,phase,fleeUntil,lastNow,turnCooldown,maxHp,hpW,hpH,wanderX;
+        // "Calm sea" for the tutorial's first catch: while true, fish don't bolt when the hook hits them, so a
+        // beginner can keep contact and watch the health bar drain. The controller flips it off after catch #1.
+        public static bool Calm;
+        float hitFlashT;   // brief flash + squash when the player's hook drains this fish (teaches "contact = damage")
         Image image; // own sprite — toggled off when the fish scrolls off-screen (culling)
         RectTransform hpBar,hpFillRt; Image hpFill; // HP bar above the fish, shown once it takes damage
         // Collect animation: once caught, tween into the basket (rod tip) then self-destroy (real-game parity).
@@ -99,7 +103,7 @@ namespace RustyFishing
         /// </summary>
         const float SleepMarginPx=240f;
 
-        public void Tick(float dt,float now,Vector2? hook,float boatX,bool hostile,float boatLocalY){lastNow=now;phase+=dt*2;bool fleeing=now<fleeUntil;
+        public void Tick(float dt,float now,Vector2? hook,float boatX,bool hostile,float boatLocalY){lastNow=now;phase+=dt*2;bool fleeing=now<fleeUntil&&!Calm;
             // ── park anything far off-screen ──────────────────────────────────────────────────────────
             // The field holds ~220 fish spread over the whole sea while the visible window is only about
             // ±18 sea units, so roughly nine in ten are off-screen at any moment. The cull test used to sit
@@ -203,9 +207,14 @@ namespace RustyFishing
                 ApplyColour();
             }
             float bob=Mathf.Sin(phase)*GameCatalog.FishWanderPx*(huntPhase==Hunt.Cruise?1f:.25f);
-            Rect.anchoredPosition=new Vector2(sx,baseY+huntY+bob);Rect.localScale=new Vector3(-direction,1,1);
+            float hitPunch=hitFlashT>0f?1f+0.16f*Mathf.Sin(Mathf.Clamp01(hitFlashT/0.16f)*Mathf.PI):1f;
+            Rect.anchoredPosition=new Vector2(sx,baseY+huntY+bob);Rect.localScale=new Vector3(-direction*hitPunch,hitPunch,1);
+            if(hitFlashT>0f){hitFlashT-=dt;ApplyColour();}   // bright squash-flash while the hook is draining it
             bool vis=Mathf.Abs(sx)<Mathf.Max(GameCatalog.FishCullPx,IsEvil?Def.chasePx:0f);if(image!=null&&image.enabled!=vis)image.enabled=vis;
-            if(hpBar!=null){bool show=vis&&!Locked&&Hp<maxHp-.01f;if(hpBar.gameObject.activeSelf!=show)hpBar.gameObject.SetActive(show);if(show){hpFill.fillAmount=Mathf.Clamp01(Hp/maxHp);hpBar.localScale=new Vector3(-direction,1,1);}}}
+            // Show the health bar as soon as the hook is NEAR (not only after the first hit), so a new player
+            // sees there is a bar to grind down before they even make contact.
+            bool hookNear=hook.HasValue&&Vector2.Distance(new Vector2(sx,baseY+huntY+bob),hook.Value)<Rect.sizeDelta.x*.6f+90f;
+            if(hpBar!=null){bool show=vis&&!Locked&&(Hp<maxHp-.01f||hookNear);if(hpBar.gameObject.activeSelf!=show)hpBar.gameObject.SetActive(show);if(show){hpFill.fillAmount=Mathf.Clamp01(Hp/maxHp);hpBar.localScale=new Vector3(-direction,1,1);}}}
         /// <summary>Move this fish onto a new depth ruler (called when ascending changes the zoom).</summary>
         public void Reposition(float y,float width){
             baseY=y;
@@ -218,7 +227,7 @@ namespace RustyFishing
         /// <summary>Read and clear a pending strike. The controller applies the damage.</summary>
         public bool ConsumeAttack(){if(!attackReady)return false;attackReady=false;return true;}
 
-        public bool Hit(float amount){if(Locked||dismissing)return false;Hp-=amount;if(amount>0)fleeUntil=lastNow+fleeSeconds;return Hp<=0;}
+        public bool Hit(float amount){if(Locked||dismissing)return false;Hp-=amount;if(amount>0){fleeUntil=lastNow+fleeSeconds;hitFlashT=0.16f;}return Hp<=0;}
 
         /// <summary>
         /// Carry a wound over from a previous encounter. Used when the Drowned One comes back: a
@@ -241,6 +250,7 @@ namespace RustyFishing
             var c=Locked?LockedTint:Color.white;
             // Flare red through the lunge so the strike still reads when the creature is small or far.
             if(lungeT>0f)c=Color.Lerp(c,new Color(1f,.35f,.28f,c.a),Mathf.Sin(Mathf.Clamp01(lungeT/LungeSeconds)*Mathf.PI));
+            if(hitFlashT>0f)c=Color.Lerp(c,new Color(1f,.95f,.55f,c.a),Mathf.Clamp01(hitFlashT/0.16f));   // gold pop when the player's hook drains it
             c.a*=dismissing?Mathf.Clamp01(1f-fadeT/fadeSeconds):spawnFadeT;
             image.color=c;
         }

@@ -162,8 +162,10 @@ namespace RustyFishing
             // Fixed action buttons pinned to the panel bottom (outside the scroll view).
             MakeButton(panel.transform, "RESET", new Vector2(-140, -762), new Vector2(240, 72), ResetAll);
             MakeButton(panel.transform, "LOG", new Vector2(140, -762), new Vector2(240, 72), LogValues);
+            var heal = MakeButton(panel.transform, "+HP", new Vector2(0, -838), new Vector2(200, 72), HealHull);
+            heal.image.color = new Color(.2f, .55f, .3f, .96f);
             // Wipe saved progression (coins/day/upgrades/cargo/hull) and restart at Home Harbor.
-            var wipe = MakeButton(panel.transform, "RESET SAVE", new Vector2(0, -838), new Vector2(300, 72), ResetSave);
+            var wipe = MakeButton(panel.transform, "RESET SAVE", new Vector2(0, -916), new Vector2(300, 72), ResetSave);
             wipe.image.color = new Color(.62f, .2f, .2f, .96f);
 
             panel.SetActive(false);
@@ -199,6 +201,12 @@ namespace RustyFishing
             var controller = UnityEngine.Object.FindFirstObjectByType<FishingGameController>();
             if (controller != null) controller.ResetProgression();
             else Debug.LogWarning("[TuningPanel] No FishingGameController found — cannot reset progression.");
+        }
+
+        void HealHull()
+        {
+            var controller = UnityEngine.Object.FindFirstObjectByType<FishingGameController>();
+            if (controller != null) controller.CheatHealHull();
         }
 
         void LogValues()

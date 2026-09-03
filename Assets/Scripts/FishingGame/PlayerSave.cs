@@ -26,6 +26,12 @@ namespace RustyFishing
         // objective of that mission, so a two-line mission carries two counters. missionId "" on a fresh
         // save means "not handed out yet" — the first harbour visit gives it.
         public string missionId="";
+        // A mission is OFFERED when handed out but only ACTIVE (tracks progress, shows the sea note) once the
+        // player presses ACCEPT in the Ledger. Kept per-save so an offered-not-accepted mission survives a quit.
+        public bool missionAccepted=false;
+        // Whether the player has OPENED the Ledger for the current offer. New+unseen → the MISSIONS button
+        // breathes; seen-but-not-accepted → it shows a warning icon.
+        public bool missionSeen=false;
         public List<int> missionProgress=new();
         public List<string> missionsDone=new();
         // Set the moment every objective is met; cleared on claim. Stored rather than derived so the

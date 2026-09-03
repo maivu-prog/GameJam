@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace RustyFishing
 {
@@ -20,12 +21,17 @@ namespace RustyFishing
     {
         bool ledgerOpen;
 
+        [Tooltip("Indicator cạnh/ trên nút MISSIONS — hiện khi có nhiệm vụ CHƯA nhận (mới hoặc đã xem). Tuỳ chọn.")]
+        [SerializeField] Image missionWarnIcon;
+        float missionBtnPopT;   // pop animation on the MISSIONS button when it opens the Ledger
+
         /// <summary>
-        /// The sea note starts HIDDEN and only the player brings it out. Three states, one direction:
-        ///     hidden ──[toggle button]──▶ note ──[tap the note]──▶ full Ledger
-        /// Nothing pops it open on its own, so the note can never appear over the wheel mid-turn.
+        /// The sea note is OFF by default — the player brings it out with the toggle. When shown it is
+        /// COMPACT (one line, current objective only — see TrackerFocusLine), so a multi-task mission still
+        /// fits a phone. Tapping it opens the full Ledger.
+        ///     [toggle] hide ⇄ note ──[tap the note]──▶ full Ledger
         /// </summary>
-        bool trackerShown;
+        bool trackerShown = false;
         float stampTimer;
         const float StampSeconds = .8f;
 
@@ -35,11 +41,11 @@ namespace RustyFishing
         void SetupMissions()
         {
             EnsureMissionAssigned();
-            if (missionButton != null) BindClick(missionButton, OpenLedger);
+            if (missionButton != null) BindClick(missionButton, ShowTrackerFromButton);   // opens the NOTE, not the full log
             if (missionView != null)
             {
                 // Tapping the note is the way UP to the full panel — not a way to resize the note.
-                missionView.BindButtons(ClaimFromLedger, ToggleTracker, CloseLedger, OpenLedger);
+                missionView.BindButtons(ClaimFromLedger, TrackOrAccept, CloseLedger, OpenLedger, ToggleTracker);
                 missionView.SetOpen(false);
                 missionView.SetProgressStamp(false);
             }
@@ -51,9 +57,13 @@ namespace RustyFishing
         // =============================================================================================
         public void OpenLedger()
         {
+            missionBtnPopT = 0.22f;   // pop the button on press, even if the view is not wired
             if (missionView == null) return;
             EnsureMissionAssigned();
             ledgerOpen = true;
+            trackerShown = false;      // "see more" transitions the note into the full log — hide the note
+            if (AtSea) everCheckedMissionSea = true;   // retires the "check missions at sea" tutorial step
+            if (save != null && !save.Data.missionSeen) { save.Data.missionSeen = true; save.Store(); }   // opened = seen
             missionView.SetOpen(true);
             UpdateMissionUI();
         }
@@ -72,8 +82,61 @@ namespace RustyFishing
             UpdateMissionUI();
         }
 
-        /// <summary>Show or hide the sea note. Wired to the SAFE/DANGER board and the Ledger's TRACK button.</summary>
-        void ToggleTracker() { trackerShown = !trackerShown; UpdateMissionUI(); }
+        /// <summary>Show or hide the sea note. Wired to the SAFE/DANGER board (and, once accepted, the TRACK button).</summary>
+        void ToggleTracker() { trackerShown = !trackerShown; everToggledTrack = true; UpdateMissionUI(); }
+
+        /// <summary>The one TRACK button doubles as ACCEPT: it accepts an offered mission, else toggles the note.</summary>
+        void TrackOrAccept() { if (MissionOffered) AcceptMission(); else ToggleTracker(); }
+
+        /// <summary>MISSIONS button: bring out the sea note (a mini-briefing). Tapping its "see more" opens the
+        /// full Ledger; tapping anywhere outside the note closes it.</summary>
+        void ShowTrackerFromButton()
+        {
+            EnsureMissionAssigned();
+            trackerShown = true;
+            trackerGrace = 0.2f;                 // the tap that opened it must not immediately close it
+            missionBtnPopT = 0.22f;
+            if (AtSea) everShowedNoteSea = true;
+            UpdateMissionUI();
+        }
+        void CloseTracker() { trackerShown = false; UpdateMissionUI(); }
+
+        // Tap anywhere outside the sea note (and not on the full Ledger) closes the note.
+        float trackerGrace;
+        void TickTrackerAutoClose(float dt)
+        {
+            if (trackerGrace > 0f) trackerGrace -= dt;
+            if (!trackerShown || ledgerOpen || missionView == null || trackerGrace > 0f) return;
+            var rt = missionView.TrackerRootRect;
+            if (rt == null) return;
+            var p = UnityEngine.InputSystem.Pointer.current;
+            if (p == null || !p.press.wasPressedThisFrame) return;
+            Vector2 pos = p.position.ReadValue();
+            if (!RectTransformUtility.RectangleContainsScreenPoint(rt, pos, null)) CloseTracker();
+        }
+
+        /// <summary>MISSIONS button feedback: no breathing — an offered (not-yet-accepted) mission simply
+        /// shows the indicator icon.</summary>
+        void TickMissionButton()
+        {
+            if (missionButton != null)
+            {
+                if (missionBtnPopT > 0f)
+                {
+                    missionBtnPopT -= Time.unscaledDeltaTime;
+                    float k = Mathf.Clamp01(1f - missionBtnPopT / 0.22f);
+                    missionButton.transform.localScale = Vector3.one * MissionLedgerView.PopScale(k);
+                    if (missionBtnPopT <= 0f) missionButton.transform.localScale = Vector3.one;
+                }
+                else if (missionButton.transform.localScale != Vector3.one)
+                    missionButton.transform.localScale = Vector3.one;   // no breathing anymore
+            }
+            if (missionWarnIcon != null)
+            {
+                bool offered = MissionOffered;
+                if (missionWarnIcon.gameObject.activeSelf != offered) missionWarnIcon.gameObject.SetActive(offered);
+            }
+        }
 
         // =============================================================================================
         //  Paint
@@ -83,9 +146,11 @@ namespace RustyFishing
             if (missionView == null) return;
             var m = CurrentMission;
 
+            // The sea note (a mini-briefing with a "see more" to the full log) shows for ANY mission — offered
+            // or accepted — but only when the player brings it out with the MISSIONS button; it never auto-pops.
             missionView.PaintTracker(m != null && trackerShown,
                                      m != null ? m.title.ToUpperInvariant() : "",
-                                     ObjectiveBlock(m, true));
+                                     TrackerFocusLine(m));
 
             if (!ledgerOpen) return;
 
@@ -127,6 +192,7 @@ namespace RustyFishing
 
             model.showStamp = MissionReady;
             model.showClaim = MissionClaimableHere;
+            model.showAccept = MissionOffered;   // ACCEPT button visible only while offered-not-accepted
             missionView.Paint(model);
         }
 
@@ -156,6 +222,30 @@ namespace RustyFishing
         /// </summary>
         const string DoneAlpha = "<alpha=#66>";   // TMP rich text, ~40% opacity
         const string LiveAlpha = "<alpha=#ff>";
+
+        /// <summary>
+        /// The compact sea-note line: the FIRST unfinished objective only, plus its tally and — when the
+        /// mission has more than one task — a dim "(2/3)" so the player knows there is more without it eating
+        /// a second line. When everything is met it becomes a short "report in" nudge. One line, always.
+        /// </summary>
+        string TrackerFocusLine(MissionDef m)
+        {
+            if (m == null) return "";
+            for (int i = 0; i < m.objectives.Count; i++)
+            {
+                var o = m.objectives[i];
+                int done = Mathf.Min(ProgressAt(i), o.count);
+                if (done >= o.count) continue;   // this one is finished — move focus to the next
+                var sb = new System.Text.StringBuilder();
+                sb.Append(o.label);
+                if (o.count > 1) sb.Append("   ").Append(done).Append('/').Append(o.count);
+                if (m.objectives.Count > 1)
+                    sb.Append("   ").Append(DoneAlpha).Append('(').Append(i + 1).Append('/')
+                      .Append(m.objectives.Count).Append(')').Append(LiveAlpha);
+                return sb.ToString();
+            }
+            return DoneAlpha + "All done — report in" + LiveAlpha;
+        }
 
         string ObjectiveBlock(MissionDef m, bool terse)
         {
@@ -206,6 +296,8 @@ namespace RustyFishing
         /// </summary>
         void TickMissionUI(float dt)
         {
+            TickMissionButton();
+            TickTrackerAutoClose(dt);
             if (missionView == null) return;
 
             if (stampTimer > 0f)

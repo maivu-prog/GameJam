@@ -58,7 +58,7 @@ namespace RustyFishing
             if(marketList.GetComponent<VerticalLayoutGroup>()==null){var v=marketList.gameObject.AddComponent<VerticalLayoutGroup>();v.childControlHeight=false;v.childForceExpandHeight=false;v.childAlignment=TextAnchor.UpperCenter;}
             var fit=marketList.GetComponent<ContentSizeFitter>();if(fit==null)fit=marketList.gameObject.AddComponent<ContentSizeFitter>();
             fit.verticalFit=ContentSizeFitter.FitMode.PreferredSize;}
-        void SetSail(){if(save.Data.hullHp<=0){Set(message,"Repair the ship before sailing.");return;}if(harbor!=null)harbor.gameObject.SetActive(false);if(sea!=null)sea.gameObject.SetActive(true);mode=phaseTime>=GameCatalog.DaySeconds?Mode.Night:Mode.Sailing;if(left!=null)left.gameObject.SetActive(true);if(right!=null)right.gameObject.SetActive(true);
+        void SetSail(){if(save.Data.hullHp<=0){Set(message,"Repair the ship before sailing.");return;}HintsOnSail();CloseLedger();if(harbor!=null)harbor.gameObject.SetActive(false);if(sea!=null)sea.gameObject.SetActive(true);mode=phaseTime>=GameCatalog.DaySeconds?Mode.Night:Mode.Sailing;if(left!=null)left.gameObject.SetActive(true);if(right!=null)right.gameObject.SetActive(true);
             // Leaving: the sea screen comes back still zoomed in on the quay and eases out as you pull away.
             dockingPort=null;dockZoomTarget=0f;ApplyDockCamera();
             PlaceWorldArt();UpdateSeaUI();}
@@ -180,6 +180,8 @@ namespace RustyFishing
             OpenHarbor(GameCatalog.Ports[0]);
             Set(message,"Progression reset.");
         }
+        /// <summary>Cheat: refill hull HP to full (test tool only).</summary>
+        public void CheatHealHull(){ save.Data.hullHp=save.MaxHp; save.Store(); UpdateShipReadouts(); }
         // Hooks for the Inspector tuning tool (TuningInspector) to rebuild structural bits live.
         public void RebuildObstacleArt(){SetupObstacles();}
         public void RepopulateFish(){foreach(var f in fish)if(f!=null)Destroy(f.gameObject);fish.Clear();PopulateFishField();}

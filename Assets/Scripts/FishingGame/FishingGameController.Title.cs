@@ -16,7 +16,11 @@ namespace RustyFishing
         {
             BindClick(continueButton, HideTitle);
             BindClick(newGameButton, NewGame);
-            if (titleScreen == null) return;          // no menu authored: go straight to the harbour
+            if (titleScreen == null)                  // no menu authored: go straight to SEA (not the harbour)
+            {
+                if (save != null && save.Data.hullHp > 0) SetSail();
+                return;
+            }
             titleScreen.gameObject.SetActive(true);
             ShowWorld(false);                         // menu is up — the harbour must not sit behind it
             RefreshTitle();
@@ -96,11 +100,10 @@ namespace RustyFishing
             EnsureMissionAssigned();
             UpdateMissionUI();
             save.CaptureDayStart();   // day 1 dawn — the rewind point for a sinking on the first day
-            // A new game lands IN THE HARBOUR, not at sea. Continue still sails, because a returning
-            // player was mid-voyage -- but the opening tutorial talks about the dock, the SET SAIL button
-            // and steering out of the harbour, and none of that can be pointed at from open water.
+            // A new game now lands AT SEA (in home harbour water). The reordered tutorial opens with
+            // "steer out of the harbour", so the player starts on the water, not on the dock screen.
             if (titleScreen != null) titleScreen.gameObject.SetActive(false);
-            ShowWorld(true);
+            if (save.Data.hullHp > 0) SetSail(); else ShowWorld(true);
         }
     }
 }

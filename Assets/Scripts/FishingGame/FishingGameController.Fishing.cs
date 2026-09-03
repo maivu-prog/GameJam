@@ -42,9 +42,10 @@ namespace RustyFishing
         void StartFishing(){HintsOnCast();mode=Mode.Fishing;hookRetracting=false;hookOffset=Vector2.zero;hookPrevOffset=Vector2.zero;if(bubbles!=null)bubbles.ResetVelocity();hookTime=0;boatSpeed=0;trail.Clear();hook.localScale=Vector3.one*GameCatalog.HookScale;hook.localEulerAngles=Vector3.zero;hook.anchoredPosition=new Vector2(0,SeaMap.HookRestY);hook.gameObject.SetActive(true);
             // Hide the left/right steering controls while casting (you can't steer with a line out).
             if(left!=null)left.gameObject.SetActive(false);if(right!=null)right.gameObject.SetActive(false);
-            ShowCastTimer(true);UpdateCastTimer();
+            ShowCastTimer(Learned("steer_hook"));UpdateCastTimer();   // no countdown during the first-catch lesson
             if(GameCatalog.debugStorage)Debug.Log($"[Hook] cast — bubbles={(bubbles!=null?"CO":"NULL")}, hook={(hook!=null?"CO":"NULL")}");}
         void EndFishing(){mode=phaseTime>=GameCatalog.DaySeconds?Mode.Night:Mode.Sailing;hookRetracting=false;ShowCastTimer(false);hook.gameObject.SetActive(false);trail.Clear();linePts.Clear();HideLine();
+            if(joystick!=null&&joystick.knob!=null)joystick.knob.localScale=Vector3.one;   // clear any coaching pulse
             if(left!=null)left.gameObject.SetActive(true);if(right!=null)right.gameObject.SetActive(true);}
         void TickHook(float dt){
             UpdateCastTimer();   // also runs while reeling in, where hookTime is frozen and the ring holds
@@ -74,6 +75,12 @@ namespace RustyFishing
             Vector2 move=new Vector2(vx,-vy);
             if(move.sqrMagnitude>0.02f){HintsOnHookMoved();float target=Mathf.Atan2(move.y,move.x)*Mathf.Rad2Deg+90f;hook.localEulerAngles=new Vector3(0,0,Mathf.LerpAngle(hook.localEulerAngles.z,target,0.3f));}
             DrawLine();
+            // Affordance: until the player has ever steered the hook, pulse the dial knob so it reads as a
+            // draggable joystick rather than a button. Stops the instant they move it (hookEverMoved).
+            if(joystick!=null&&joystick.knob!=null){
+                float p=(!hookEverMoved&&!Learned("steer_hook"))?1f+0.14f*Mathf.Abs(Mathf.Sin(Time.time*6f)):1f;
+                joystick.knob.localScale=new Vector3(p,p,1f);
+            }
             TrackHookImpact(dt);
             // The hit radius is in PIXELS while the fish sprite shrinks with the zoom, so without DepthZoom
             // a zoomed-out tier 3 gave a hitbox wider than the fish itself — deeper water became EASIER to
@@ -115,7 +122,10 @@ namespace RustyFishing
                              +$"hookMove={hookMovePx:0} gate={biteGate} joy=({joystick.Value.x:0.00},{joystick.Value.y:0.00}) frame={Time.frameCount}");
                 }
             }
-            if(biteGate&&bite.Hit(GameCatalog.HookDamage*save.DamageMultiplier*dt)){
+            // Before the first catch is taught, drain fish at 40% speed so a beginner actually SEES the health
+            // bar go down instead of a fish popping on one swipe.
+            float tutDmgMul=Learned("steer_hook")?1f:0.4f;
+            if(biteGate&&bite.Hit(GameCatalog.HookDamage*save.DamageMultiplier*tutDmgMul*dt)){
                 // Always catch — even when the basket is full. If it overflows, open the toss modal.
                 var f=bite;
                 if(GameCatalog.debugFishing){
@@ -125,6 +135,7 @@ namespace RustyFishing
                              +$"hookY={hookOffset.y:0}/floor={-Mathf.Max(0f,floorPx):0} joy=({joystick.Value.x:0.00},{joystick.Value.y:0.00})");
                 }
                 fish.Remove(f);f.Collect(new Vector2(95,300)-fishLayer.anchoredPosition);
+                HintsOnCatch();   // first catch retires the "drain its health" hint and ends the calm sea
                 int before=save.Data.cargo.Count;
                 save.AddForced(f.Def.id,AbsHour,f.WeightMul);
                 if(GameCatalog.debugStorage)
@@ -134,8 +145,11 @@ namespace RustyFishing
                 FishStock.Take(save.Data,caughtZone,SeaMap.BandIndexAt(f.DepthU));
                 MissionOnCatch(f.Def,f.DepthU,caughtZone,f.Def.size*GameCatalog.WeightSizeToKg*f.WeightMul);
                 if(save.OverCapacity&&!inventoryOpen)ForceStorageOpen();}
+            TryCatchTreasure(hookMovePx,zoom,dt);   // seabed treasures drain on the same rules as fish
             // Release the dial (or run out the line) -> reel the hook straight back to the boat.
-            if(!joystick.Held||hookTime>GameCatalog.HookLineSeconds)hookRetracting=true;}
+            // During the first-catch lesson the line never times out — only releasing reels in — so a
+            // beginner has all the time they need to learn to drain a fish.
+            if(!joystick.Held||(hookTime>GameCatalog.HookLineSeconds&&Learned("steer_hook")))hookRetracting=true;}
         // The hook sprite is 110px tall before scale: the barb sits near the bottom, the eye near the top.
         // Both ends are needed — the whole shank blocks and catches, not just the point.
         const float HookBarbLocalY=-50f, HookEyeLocalY=48f;
@@ -202,6 +216,11 @@ namespace RustyFishing
             for(int i=s;i<lineSegs.Length;i++)if(lineSegs[i].gameObject.activeSelf)lineSegs[i].gameObject.SetActive(false);}
 
         void TickFish(float dt){
+            // Calm sea until the "drain its health" lesson is learned (first catch): fish don't flee when hit,
+            // so a beginner can keep the hook on one and watch the bar drain. Persisted via hintsSeen, so a
+            // returning veteran who already knows it gets the normal fleeing sea straight away.
+            FishActor.Calm = !Learned("steer_hook");
+            MaybeResetTreasures();   // re-rolls the treasure field every few days (cheap no-op otherwise)
             // Fish are NOT spawned in front of the player. They live at fixed world spots (their HomeX)
             // and scroll past as the boat sails. We only slowly top up the field with fish placed OFF-SCREEN,
             // so depletion recovers over time but nothing ever pops into view next to the player.
@@ -226,7 +245,9 @@ namespace RustyFishing
                 f.SetLocked(f.DepthU>reach);   // below the earned water = silhouette, uncatchable
                 f.Tick(dt,Time.time,hookLocal,boatX,hostile,boatLocalY);
                 if(f.ConsumeAttack())TakeBite(f);
-            }}
+            }
+            TickTreasures(dt,hookLocal);   // stationary seabed treasures scroll + show HP the same way
+        }
 
         // One bite at a time. Each creature already staggers itself, but a pack can still land together by
         // chance, and losing a third of the hull in one frame reads as a bug rather than as an ambush.

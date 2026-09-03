@@ -40,9 +40,28 @@ namespace RustyFishing
             var m = MissionBook.Get(id);
             save.Data.missionId = m != null ? id : "";
             save.Data.missionReady = false;
+            save.Data.missionAccepted = false;   // handed out but not yet ACCEPTED
+            save.Data.missionSeen = false;       // ...and not yet opened, so the button can breathe
             save.Data.missionProgress.Clear();
             if (m != null) for (int i = 0; i < m.objectives.Count; i++) save.Data.missionProgress.Add(0);
             save.Store();
+        }
+
+        /// <summary>Objectives have been OFFERED and the player has pressed ACCEPT — now it tracks.</summary>
+        public bool MissionAccepted => save != null && save.Data.missionAccepted;
+
+        /// <summary>There is a live mission the player has not accepted yet.</summary>
+        public bool MissionOffered => CurrentMission != null && !MissionAccepted;
+
+        /// <summary>Accept the offered mission — from the Ledger's ACCEPT button. Only now does it track.</summary>
+        public void AcceptMission()
+        {
+            if (CurrentMission == null || save.Data.missionAccepted) return;
+            save.Data.missionAccepted = true;
+            save.Store();
+            // Do NOT auto-show the sea note — the player brings it out with the toggle. Nothing mission-related
+            // pops up on its own; the Ledger only opens on the MISSIONS button.
+            UpdateMissionUI();
         }
 
         int ProgressAt(int i) =>
@@ -129,6 +148,7 @@ namespace RustyFishing
         {
             var m = CurrentMission;
             if (m == null || amount <= 0 || save.Data.missionReady) return;
+            if (!save.Data.missionAccepted) return;   // an offered-not-accepted mission does not track yet
 
             bool touched = false;
             for (int i = 0; i < m.objectives.Count && i < save.Data.missionProgress.Count; i++)

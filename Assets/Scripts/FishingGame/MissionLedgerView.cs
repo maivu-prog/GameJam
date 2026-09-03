@@ -13,6 +13,7 @@ namespace RustyFishing
         public string title, description, objectives, whereLine, reward;
         public bool showStamp;      // objectives all met
         public bool showClaim;      // ...and we are standing in the right port
+        public bool showAccept;     // mission offered but not yet accepted
         public bool tracking;       // sea note currently shown
     }
 
@@ -64,9 +65,9 @@ namespace RustyFishing
         [Header("Nút")]
         [Tooltip("Nút CLAIM. Tự ẩn khi chưa xong hoặc đang đứng sai cảng.")]
         [SerializeField] Button claimButton;
-        [Tooltip("Nút bật/tắt tờ note ngoài biển.")]
+        [Tooltip("Nút TRACK — CŨNG là nút ACCEPT. Chưa nhận: chữ 'ACCEPT' (bấm để nhận). Đã nhận: 'TRACK'/'UNTRACK' bật/tắt note.")]
         [SerializeField] Button trackButton;
-        [Tooltip("Chữ trên nút track — game đổi giữa TRACK và UNTRACK. Bỏ trống nếu không cần đổi.")]
+        [Tooltip("Chữ trên nút track/accept — game đổi giữa ACCEPT / TRACK / UNTRACK. Bỏ trống nếu không cần đổi.")]
         [SerializeField] TMP_Text trackButtonLabel;
         [SerializeField] Button closeButton;
 
@@ -94,6 +95,14 @@ namespace RustyFishing
         [SerializeField] GameObject progressStamp;
 
         /// <summary>The stamp quad, for the press animation. Null when no stamp was wired.</summary>
+        /// <summary>The TRACK/ACCEPT button rect, for the tutorial to point at. Null if not wired.</summary>
+        public RectTransform TrackButtonRect => trackButton != null ? (RectTransform)trackButton.transform : null;
+        /// <summary>The CLOSE ("Back to Harbour") button rect, for the tutorial to point at. Null if not wired.</summary>
+        public RectTransform CloseButtonRect => closeButton != null ? (RectTransform)closeButton.transform : null;
+        /// <summary>The sea note's "see more" (Tracker Tap) button rect. Null if not wired.</summary>
+        public RectTransform TrackerTapButtonRect => trackerTapButton != null ? (RectTransform)trackerTapButton.transform : null;
+        /// <summary>The sea note root rect, for the tap-outside-to-close test. Null if not wired.</summary>
+        public RectTransform TrackerRootRect => trackerRoot != null ? (RectTransform)trackerRoot.transform : null;
         public Transform ProgressStampTransform => progressStamp != null ? progressStamp.transform : null;
         public Transform ReadyStampTransform => readyStamp != null ? readyStamp.transform : null;
         public bool IsOpen => root != null && root.activeSelf;
@@ -105,13 +114,15 @@ namespace RustyFishing
         /// <param name="track">Show/hide the sea note. Bound to BOTH the Ledger's TRACK button and the
         /// optional toggle out at sea, so the two never drift out of step.</param>
         /// <param name="tapNote">Open the full Ledger from the note.</param>
-        public void BindButtons(Action claim, Action track, Action close, Action tapNote)
+        // trackOrAccept: the TRACK button — accepts the mission when it is still offered, otherwise toggles
+        // the sea note. boardToggle: the SAFE/DANGER board out at sea, which only ever toggles the note.
+        public void BindButtons(Action claim, Action trackOrAccept, Action close, Action tapNote, Action boardToggle)
         {
             Hook(claimButton, claim);
-            Hook(trackButton, track);
+            Hook(trackButton, trackOrAccept);
             Hook(closeButton, close);
             Hook(trackerTapButton, tapNote);
-            Hook(trackerToggleButton, track);
+            Hook(trackerToggleButton, boardToggle);
         }
 
         static void Hook(Button b, Action a)
@@ -121,7 +132,34 @@ namespace RustyFishing
             b.onClick.AddListener(() => a());
         }
 
-        public void SetOpen(bool on) { if (root != null) root.SetActive(on); }
+        float popT; const float PopSeconds = 0.22f;
+        public void SetOpen(bool on) { if (root != null) root.SetActive(on); if (on) popT = PopSeconds; }
+
+        void Update()
+        {
+            if (popT > 0f && root != null)
+            {
+                popT -= Time.unscaledDeltaTime;
+                float k = Mathf.Clamp01(1f - popT / PopSeconds);   // 0 → 1
+                root.transform.localScale = Vector3.one * PopScale(k);
+                if (popT <= 0f) root.transform.localScale = Vector3.one;
+            }
+            if (trackerPopT > 0f && trackerRoot != null)
+            {
+                trackerPopT -= Time.unscaledDeltaTime;
+                float k = Mathf.Clamp01(1f - trackerPopT / PopSeconds);
+                trackerRoot.transform.localScale = Vector3.one * PopScale(k);
+                if (trackerPopT <= 0f) trackerRoot.transform.localScale = Vector3.one;
+            }
+        }
+
+        // Ease-out-back: grows past 1 then settles, for a little "pop".
+        public static float PopScale(float k)
+        {
+            const float c1 = 1.70158f, c3 = c1 + 1f, from = 0.84f;
+            float x = k - 1f;
+            return from + (1f - from) * (1f + c3 * x * x * x + c1 * x * x);
+        }
 
         /// <summary>Paint one frame of the panel. Every slot is optional — an empty one is skipped.</summary>
         public void Paint(in LedgerModel m)
@@ -147,13 +185,19 @@ namespace RustyFishing
 
             if (readyStamp != null) readyStamp.SetActive(m.showStamp);
             if (claimButton != null) claimButton.gameObject.SetActive(m.showClaim);
-            if (trackButtonLabel != null) trackButtonLabel.text = m.tracking ? "UNTRACK" : "TRACK";
+            // The track button doubles as ACCEPT while the mission is still offered.
+            if (trackButtonLabel != null) trackButtonLabel.text = m.showAccept ? "ACCEPT" : (m.tracking ? "UNTRACK" : "TRACK");
         }
 
-        /// <summary>The sea note — one fixed size, shown or not shown.</summary>
+        bool trackerWasShown;
+        float trackerPopT;
+
+        /// <summary>The sea note — one fixed size, shown or not shown. Pops when it first appears.</summary>
         public void PaintTracker(bool show, string titleText, string lines)
         {
-            if (trackerRoot != null) trackerRoot.SetActive(show);
+            if (trackerRoot != null && trackerRoot.activeSelf != show) trackerRoot.SetActive(show);
+            if (show && !trackerWasShown) trackerPopT = PopSeconds;   // pop on appear
+            trackerWasShown = show;
             if (!show) return;
             Write(trackerTitle, titleText);
             Write(trackerLines, lines);

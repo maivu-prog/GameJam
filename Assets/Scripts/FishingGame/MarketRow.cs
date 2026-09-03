@@ -20,6 +20,9 @@ namespace RustyFishing
         [SerializeField] Image[] freshDots;      // exactly 3: Fresh / Stale / Rotten
         [SerializeField] Button sellButton;
 
+        /// <summary>The row's SELL button rect, for the tutorial to point at. Null if no button was wired.</summary>
+        public RectTransform SellButtonRect => sellButton != null ? (RectTransform)sellButton.transform : null;
+
         public void Set(Sprite sprite, string species, float weightKg, int freshIndex, int price, Action onSell)
         {
             if (icon != null && sprite != null) icon.sprite = sprite;
